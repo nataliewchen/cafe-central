@@ -49,12 +49,9 @@ module.exports.ensureLogin = (req, res, next) => {
 module.exports.ensureAuthor = async(req, res, next) => {
     const {id} = req.params; // since this middleware only runs on requests like /cafe/:id/edit
     const cafe = await Cafe.findById(id);
-    if (!cafe.author.equals(req.user.id)) {
+    if (!cafe.author.equals(req.user.id) && req.user.id !=='61b158f8f0e48943aab0fa5f') { // not author or admin
         req.flash('error', 'Sorry, you do not have permission to do that!');
         res.redirect(`/cafes/${id}`)
-    }
-    else if (req.user.id === '61b158f8f0e48943aab0fa5f') { // admin
-        next();
     }
     else {
         next();
