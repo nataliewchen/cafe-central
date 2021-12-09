@@ -53,6 +53,9 @@ module.exports.ensureAuthor = async(req, res, next) => {
         req.flash('error', 'Sorry, you do not have permission to do that!');
         res.redirect(`/cafes/${id}`)
     }
+    else if (req.user.id === '61b158f8f0e48943aab0fa5f') { // admin
+        next();
+    }
     else {
         next();
     }
