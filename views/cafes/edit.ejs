@@ -1,0 +1,137 @@
+<%- layout('/layout/boilerplate') %>
+<link rel="stylesheet" href="/css/forms.css">
+
+<div class="row">
+    <div class="card-shadow text-center">
+        <h1 class="text-center">Edit Cafe</h1>
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+
+            <form action="/cafes/<%= cafe.id %>?_method=patch" method="post" class="validated-form"
+                enctype="multipart/form-data" novalidate>
+                <div class="form-floating my-3">
+                    <input type="text" class="form-control" id="name" placeholder="Name" name="cafe[name]"
+                        value="<%= cafe.name %>" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="location" placeholder="Location" name="cafe[location]"
+                        value="<%= cafe.location %>" required>
+                    <label for="location">Address</label>
+                    <small class="text-muted">Format: 123 Main Street, San Francisco, CA 94016</small>
+                </div>
+                <div class="row g-2 mb-3">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="url" class="form-control" id="website" placeholder="Website"
+                                name="cafe[website]" value="<%= cafe.website %>" required>
+                            <label for="website">Website</label>
+                            <small class="text-muted">Format: https:// or http://</small>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number"
+                                name="cafe[phone]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<%= cafe.phone %>"
+                                required>
+                            <label for="phone">Phone Number</label>
+                            <small class="text-muted">Format: 123-456-7890</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price Range:</label><br>
+                    <input type="radio" class="btn-check" name="cafe[price]" id="price1" value="1"
+                        <% if(cafe.price===1){ %> checked <% } %> required>
+                    <label class="btn btn-outline-success fs-5" for="price1">$</label>
+                    <input type="radio" class="btn-check" name="cafe[price]" id="price2" value="2"
+                        <% if(cafe.price===2){ %> checked <% } %> required>
+                    <label class="btn btn-outline-success fs-5" for="price2">$$</label>
+                    <input type="radio" class="btn-check" name="cafe[price]" id="price3" value="3"
+                        <% if(cafe.price===3){ %> checked <% } %> required>
+                    <label class="btn btn-outline-success fs-5" for="price3">$$$</label>
+                    <div class="invalid-feedback">Please select a price range.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Categories: <span class="text-muted"><small>(optional, choose up to
+                                3)</small></span></label>
+                    <br>
+                    <span class="category-btn me-2">
+                        <input class="btn-check" type="checkbox" value="Coffee" id="coffee" name="cafe[categories]"
+                            <% if(cafe.categories.includes("Coffee")) { %> checked <% } %>>
+                        <label class="form-check-label btn btn-outline-dark mb-1" for="coffee"><img
+                                src="/icons/coffee.png" class="icon d-inline">Coffee</label>
+                    </span>
+                    <span class="category-btn me-2">
+                        <input class="btn-check" type="checkbox" value="Boba" id="boba" name="cafe[categories]"
+                            <% if(cafe.categories.includes("Boba")) { %> checked <% } %>>
+                        <label class="form-check-label btn btn-outline-dark mb-1" for="boba"><img src="/icons/boba.png"
+                                class="icon d-inline">Boba</label>
+                    </span>
+                    <span class="category-btn">
+                        <input class="btn-check" type="checkbox" value="Bakery" id="bakery" name="cafe[categories]"
+                            <% if(cafe.categories.includes("Bakery")) { %> checked <% } %>>
+                        <label class="form-check-label btn btn-outline-dark mb-1" for="bakery"><img
+                                src="/icons/bakery.png" class="icon d-inline"> Bakery</label>
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Add new images:</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="imageUpload" name="image"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple>
+                    </div>
+                    <p class="text-muted"><small>All photos will be cropped to a 1:1 (square) ratio.</small></p>
+                </div>
+                <div id="imagePreviews" class="mb-3"></div>
+                <div class="mb-3">
+                    <p class="form-label" for="image">Select any existing images to delete:</p>
+                    <% cafe.images.forEach((img, i) => { %>
+                    <div class="form-check-inline">
+                        <input class="deleteCheckbox" type="checkbox" name="deleteImages[]" id="img_<%= i %>"
+                            value="<%= img.filename %>">
+                        <label for="img_<%= i %>"><img class="imagePreview" src="<%= img.square %> " alt=""></label>
+                    </div>
+                    <% }) %>
+                    <div class="text-danger d-none" id="imgsFeedback">At least one image is required!</div>
+                </div>
+                <div class="mb-3">
+                    <input class="btn btn-success" type="submit" value="Update">
+                    <a href="/cafes/<%= cafe.id %> "><input class="btn btn-secondary" type="button" value="Cancel"></a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="d-block btn btn-danger rounded-3 mx-auto mt-3" data-bs-toggle="modal"
+                        data-bs-target="#confirmDelete">
+                        Delete Cafe
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Confirm deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this cafe and all its associated reviews?
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form action="/cafes/<%= cafe.id %>/?_method=delete" method="post" class="d-inline">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/imagePreview.js"></script>
+<script src="/js/ensureImage.js"></script>

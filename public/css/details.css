@@ -1,0 +1,81 @@
+.stars {
+  color: goldenrod;
+  letter-spacing: 0.1em;
+  font-size: 1.15em;
+}
+
+.sticky-md-top {
+  top: 1em;
+}
+
+.stars-lg {
+  font-size: 2em;
+  letter-spacing: 0.15em;
+}
+
+.category {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0 8px;
+}
+
+.favorites {
+  right: 0;
+  top: 0;
+}
+
+#addFavorite {
+  color: black;
+  font-size: 3em;
+}
+
+#addFavorite:hover {
+  color: #ff9999;
+}
+
+#removeFavorite {
+  color: #ff9999;
+  font-size: 3em;
+}
+
+#removeFavorite:hover {
+  color: black;
+}
+
+.list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.list-group-item > a {
+  text-decoration: none;
+}
+
+.sticky-top {
+  top: 3em;
+}
+
+#loginToReview {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #0d6efd;
+  padding: 0;
+}
+
+#map {
+  width: 100%;
+  height: 275px;
+  margin-top: 3em;
+  background-color: lightblue;
+}
+
+.review-options:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 567px) {
+  .list-group-item {
+    font-size: 4vw;
+  }
+}

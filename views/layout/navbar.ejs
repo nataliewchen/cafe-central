@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white py-2">
+    <div class="container-lg">
+        <a class="navbar-brand fs-4" href="/">
+            <img src="/icons/logo-icon.png" alt="" width="50">
+            Cafe Central
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto" id="navbarNavDropdown">
+            <div class="navbar-nav text-center ms-auto" id="navLinks">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+                <a class="nav-link" href="/cafes">Browse</a>
+                <a class="nav-link" href="/cafes/new">Add Cafe</a>
+                <li class="nav-link" id="search">Search</li>
+            </div>
+            <div class="navbar-nav ms-auto text-center">
+                <% if (!currentUser) { %>
+                <hr class="user-links-div d-none">
+                <a class="nav-btn btn btn-outline-dark me-md-1 me-lg-3" id="login" href="/login">Login</a>
+                <a class="nav-btn btn btn-outline-dark" id="register" href="/register">Register</a>
+                <% } else { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Hello, <%= currentUser.username %>!
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-center" id="user-dropdown"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/user/<%= currentUser.id %>/my-cafes">My Cafes</a></li>
+                        <li><a class="dropdown-item" href="/user/<%= currentUser.id %>/favorites">Favorites</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid d-none border-top text-center" id="searchBar">
+    <form class="d-sm-flex align-items-center py-3" action="/cafes/s" method="get">
+        <label class="visually-hidden" for="name">Name</label>
+        <div class="input-group">
+            <div class="input-group-text"><i class="bi bi-search"></i></div>
+            <input type="text" class="form-control" placeholder="Name" name="name" id="inputName"
+                aria-label="cafe name">
+        </div>
+        <label class="visually-hidden" for="loc">Location</label>
+        <div class="input-group">
+            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+            <input type="text" class="form-control" placeholder="Location" name="loc" id="inputLoc">
+        </div>
+        <div class="btn-group" id="searchBarBtns" role="group" aria-label="Basic example">
+            <button class="btn btn-outline-success" type="submit"><i class="fw-bold bi bi-arrow-right"></i><span
+                    class="buttonText ms-1">Search</span></button>
+            <button class="btn btn-outline-secondary" type="button" id="cancel"><i class="fbi bi-x-lg"></i><span
+                    class="buttonText text-secondary ms-1">Cancel</span></button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/toggleNavbar.js"></script>
+<script src="/js/resDesign/navbarRes.js"></script>

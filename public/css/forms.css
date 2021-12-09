@@ -1,0 +1,42 @@
+/* displaying image previews when adding new images */
+.imageContainer {
+  position: relative;
+}
+
+.imagePreview {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid lightgray;
+}
+
+.deleteCheckbox {
+  display: none;
+}
+
+.deleteCheckbox:checked + label {
+  /* selecting labels that follow a checked img*/
+  opacity: 0.3;
+}
+
+label > .imagePreview:hover {
+  cursor: pointer;
+}
+
+/* styling for category buttons */
+.category-btn img {
+  width: 40px;
+  display: block;
+  margin: auto;
+  padding-bottom: 1px;
+}
+
+input[type="checkbox"]:hover + label .icon {
+  filter: invert(1);
+}
+
+input[type="checkbox"]:checked + label .icon {
+  filter: invert(1);
+}

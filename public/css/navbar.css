@@ -1,0 +1,77 @@
+body {
+  font-family: "Shippori Antique", sans-serif;
+}
+
+.container-fluid {
+  font-size: 1.1em;
+}
+
+.nav-link {
+  padding: 0.25rem;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  border-bottom: 0.1rem solid transparent;
+}
+
+.nav-link:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+input[type="text"]:focus {
+  box-shadow: none;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.dropdown-item:focus {
+  background-color: lightblue;
+}
+
+.user-links-div {
+  width: 50%;
+  margin: 0.5rem auto;
+}
+
+#searchBar {
+  background-color: white;
+}
+
+#searchBar form {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#searchBarBtns {
+  margin-left: 0.5em;
+}
+
+.buttonText {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  #searchBar form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #searchBarBtns {
+    margin-left: 0;
+    margin-top: 0.5em;
+    width: 75%;
+  }
+
+  .buttonText {
+    display: inline;
+  }
+}
+
+/* footer */
+#credits {
+  font-size: 10px;
+}

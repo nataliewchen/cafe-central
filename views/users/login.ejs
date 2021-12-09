@@ -1,0 +1,30 @@
+<%- layout('/layout/boilerplate') %>
+
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row w-100">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Login</h4>
+                    <form class="validated-form" action="/login" method="post" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username:</label>
+                            <input class="form-control" type="text" name="username" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password:</label>
+                            <input class="form-control" type="password" name="password" id="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <input type="submit" class="btn btn-success" value="Login">
+                        </div>
+                        <small>
+                            Don't have an account yet? Create one <a href="/register">here</a>!
+                        </small>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

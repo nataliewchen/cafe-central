@@ -1,0 +1,101 @@
+main {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.options-card {
+  padding: 0;
+}
+
+.category {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0 8px;
+}
+
+.cafe-card {
+  margin-bottom: 1em;
+}
+
+.cafe-card:hover {
+  transform: scale(1.03);
+}
+
+.sticky-top {
+  top: 3em;
+}
+
+.btn-group-sm > .btn {
+  padding: 0.25rem 0;
+}
+
+.btn-outline-secondary {
+  color: black;
+}
+
+.btn-check:checked + .btn-outline-secondary {
+  background-color: lightblue;
+}
+
+.btn-check:focus + .btn-outline-secondary {
+  box-shadow: none;
+}
+
+.form-check-input:checked {
+  background-color: lightblue;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+}
+
+.btn-outline-danger:focus {
+  box-shadow: none;
+}
+
+.stars {
+  color: goldenrod;
+  letter-spacing: 0.1em;
+  font-size: 1.15em;
+}
+
+.star-count {
+  color: black;
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 992px) {
+  .cafe-card .card-title {
+    font-size: 1.25em;
+  }
+
+  .cafe-card .card-subtitle {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #options {
+    margin: 0;
+  }
+
+  .cafe-card {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cafe-card {
+    margin-bottom: 0.5em;
+    font-size: 3.5vw;
+  }
+  .card-body {
+    padding: 0;
+  }
+  #toggleOptions {
+    font-size: 0.79em;
+  }
+  #options {
+    margin: 0 1em;
+  }
+}

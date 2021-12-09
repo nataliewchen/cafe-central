@@ -1,0 +1,60 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url("../imgs/home-banner.jpg");
+  background-size: cover;
+  background-position: 80%;
+  font-family: "Shippori Antique", sans-serif;
+}
+
+.cover {
+  line-height: 0.1em;
+  color: white;
+  width: 40%;
+  margin-left: 3em;
+}
+
+form {
+  width: 100%;
+}
+
+h1 {
+  font-family: "Source Serif Pro", serif;
+  font-size: 3em;
+  letter-spacing: 0.05em;
+}
+
+h1,
+h6 {
+  text-shadow: 1px 1px 1px gray;
+}
+
+.display-4 {
+  line-height: 1;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+  .cover {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cover {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #homeSearch {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .cover {
+    width: 100%;
+  }
+}
