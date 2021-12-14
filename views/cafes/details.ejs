@@ -187,6 +187,6 @@
 <script src="/js/starsValidation.js"></script>
 <script>
     const mapboxToken = '<%- process.env.MAPBOX_TOKEN %>';
-    const cafeCoordinates = < % -JSON.stringify(cafe.geometry.coordinates) % > ;
+    const cafeCoordinates = <%- JSON.stringify(cafe.geometry.coordinates) %>;
 </script>
 <script src="/js/detailsMap.js"></script>
