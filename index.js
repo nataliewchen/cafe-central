@@ -34,8 +34,9 @@ const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 
 // connecting to mongo db
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cafe-central';
-mongoose.connect(dbUrl)
+// const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/cafe-central';
+const dbUrl = 'mongodb://localhost:27017/cafe-central';
+mongoose.connect(dbUrl, { autoIndex: false })
     .catch(error => handleError(error)); // initial connection errors
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error')); // errors after inital connection
