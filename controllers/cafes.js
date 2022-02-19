@@ -56,6 +56,10 @@ module.exports.search = catchAsync(async(req, res) => {
     const cafes = await sortCafes(sort, filter);
 
     if (!loc) { // no geocoding
+      // const allCoords = cafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}))
+      // console.log(allCoords);
+      // const center = geolib.getCenter(allCoords);
+      // console.log(center);
         res.render('cafes/searchResults', {cafes, applied, sort, name, loc});
     }
     else { // need to geocode
