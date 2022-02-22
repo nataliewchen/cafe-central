@@ -2,88 +2,86 @@
 <link rel="stylesheet" href="/css/forms.css">
 
 <div class="row">
-    <div class="card-shadow text-center">
-        <h1 class="text-center">New Cafe</h1>
-        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  <div class="card-shadow text-center">
+    <h1 class="text-center">New Cafe</h1>
+    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 
-            <form action="/cafes" method="post" class="validated-form" enctype="multipart/form-data" novalidate>
-                <div class="form-floating my-3">
-                    <input type="text" class="form-control" id="name" placeholder="Name" name="cafe[name]" required>
-                    <label for="name">Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="location" placeholder="Location" name="cafe[location]"
-                        required>
-                    <label for="location">Address</label>
-                    <small class="text-muted">Format: 123 Main Street, San Francisco, CA 94016</small>
-                </div>
-                <div class="row g-2 mb-3">
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input type="url" class="form-control" id="website" placeholder="Website"
-                                name="cafe[website]" required>
-                            <label for="website">Website</label>
-                            <small class="text-muted">Format: https:// or http://</small>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number"
-                                name="cafe[phone]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                            <label for="phone">Phone Number</label>
-                            <small class="text-muted">Format: 123-456-7890</small>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="price">Price Range:</label><br>
-                    <input type="radio" class="btn-check" name="cafe[price]" id="price1" value="1" required>
-                    <label class="btn btn-outline-success fs-5" for="price1">$</label>
-                    <input type="radio" class="btn-check" name="cafe[price]" id="price2" value="2" required>
-                    <label class="btn btn-outline-success fs-5" for="price2">$$</label>
-                    <input type="radio" class="btn-check" name="cafe[price]" id="price3" value="3" required>
-                    <label class="btn btn-outline-success fs-5" for="price3">$$$</label>
-                    <div class="invalid-feedback">Please select a price range.</div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Categories: <span class="text-muted"><small>(optional, choose up to
-                                3)</small></span></label>
-                    <br>
-                    <span class="category-btn me-2">
-                        <input class="btn-check" type="checkbox" value="Coffee" id="coffee" name="cafe[categories]">
-                        <label class="form-check-label btn btn-outline-dark mb-1" for="coffee"><img
-                                src="/icons/coffee.png" class="icon d-inline">Coffee</label>
-                    </span>
-                    <span class="category-btn me-2">
-                        <input class="btn-check" type="checkbox" value="Boba" id="boba" name="cafe[categories]">
-                        <label class="form-check-label btn btn-outline-dark mb-1" for="boba"><img src="/icons/boba.png"
-                                class="icon d-inline">Boba</label>
-                    </span>
-                    <span class="category-btn">
-                        <input class="btn-check" type="checkbox" value="Bakery" id="bakery" name="cafe[categories]">
-                        <label class="form-check-label btn btn-outline-dark mb-1" for="bakery"><img
-                                src="/icons/bakery.png" class="icon d-inline"> Bakery</label>
-                    </span>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" for="image">Upload images:</label>
-                    <div class="input-group">
-                        <input type="file" class="form-control" id="imageUpload" name="image"
-                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple required>
-                    </div>
-                    <p class="text-muted"><small>All photos will be cropped to a 1:1 (square) ratio.</small></p>
-                </div>
-                <div id="imagePreviews" class="mb-3"></div>
-                <div class="mb-3">
-                    <button class="btn btn-success" type="submit">Add</button>
-                    <a href="/cafes"><input class="btn btn-secondary" type="button" value="Cancel"></a>
-
-                </div>
-            </form>
+      <form action="/cafes" method="post" class="validated-form" enctype="multipart/form-data" novalidate>
+        <div class="form-floating my-3">
+          <input type="text" class="form-control" id="name" placeholder="Name" name="cafe[name]" required>
+          <label for="name">Name</label>
         </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="location" placeholder="Location" name="cafe[location]" required>
+          <label for="location">Address</label>
+          <small class="text-muted">Format: 123 Main Street, San Francisco, CA 94016</small>
+        </div>
+        <div class="row g-2 mb-3">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="url" class="form-control" id="website" placeholder="Website" name="cafe[website]" required>
+              <label for="website">Website</label>
+              <small class="text-muted">Format: https:// or http://</small>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="tel" class="form-control" id="phone" placeholder="Phone Number" name="cafe[phone]"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+              <label for="phone">Phone Number</label>
+              <small class="text-muted">Format: 123-456-7890</small>
+
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="price">Price Range:</label><br>
+          <input type="radio" class="btn-check" name="cafe[price]" id="price1" value="1" required>
+          <label class="btn btn-outline-success fs-5" for="price1">$</label>
+          <input type="radio" class="btn-check" name="cafe[price]" id="price2" value="2" required>
+          <label class="btn btn-outline-success fs-5" for="price2">$$</label>
+          <input type="radio" class="btn-check" name="cafe[price]" id="price3" value="3" required>
+          <label class="btn btn-outline-success fs-5" for="price3">$$$</label>
+          <div class="invalid-feedback">Please select a price range.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Categories: <span class="text-muted"><small>(optional, choose up to
+                3)</small></span></label>
+          <br>
+          <span class="category-btn me-2">
+            <input class="btn-check" type="checkbox" value="Coffee" id="coffee" name="cafe[categories]">
+            <label class="form-check-label btn btn-outline-dark mb-1" for="coffee"><img src="/icons/coffee.png"
+                class="icon d-inline">Coffee</label>
+          </span>
+          <span class="category-btn me-2">
+            <input class="btn-check" type="checkbox" value="Boba" id="boba" name="cafe[categories]">
+            <label class="form-check-label btn btn-outline-dark mb-1" for="boba"><img src="/icons/boba.png"
+                class="icon d-inline">Boba</label>
+          </span>
+          <span class="category-btn">
+            <input class="btn-check" type="checkbox" value="Bakery" id="bakery" name="cafe[categories]">
+            <label class="form-check-label btn btn-outline-dark mb-1" for="bakery"><img src="/icons/bakery.png"
+                class="icon d-inline"> Bakery</label>
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="image">Upload images:</label>
+          <div class="input-group">
+            <input type="file" class="form-control" id="imageUpload" name="image"
+              aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple required>
+          </div>
+          <p class="text-muted"><small>All photos will be cropped to a 1:1 (square) ratio.</small></p>
+        </div>
+        <div id="imagePreviews" class="mb-3"></div>
+        <div class="mb-3">
+          <button class="btn btn-success" type="submit">Add</button>
+          <a href="/cafes"><input class="btn btn-secondary" type="button" value="Cancel"></a>
+
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 
 <script src="/js/imagePreview.js"></script>

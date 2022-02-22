@@ -13,6 +13,7 @@ const haversine = require('haversine');
 const {cloudinary} = require('../cloudinary');
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding'); // creating a service client from mapbox
 const geocodingClient = mbxGeocoding({accessToken: process.env.MAPBOX_TOKEN});
+const geolib = require('geolib');
 
 // SHOWING ALL CAFES
 module.exports.index = catchAsync(async(req, res) => {
@@ -55,12 +56,17 @@ module.exports.search = catchAsync(async(req, res) => {
     const filter = createFilter(applied); // based on filters and name
     const cafes = await sortCafes(sort, filter);
 
+    const boundCoords = cafes.slice(0,5).map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
+    const bounds = geolib.getBounds(boundCoords);
+
+    const mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
+
     if (!loc) { // no geocoding
       // const allCoords = cafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}))
       // console.log(allCoords);
       // const center = geolib.getCenter(allCoords);
       // console.log(center);
-        res.render('cafes/searchResults', {cafes, applied, sort, name, loc});
+        res.render('cafes/searchResults', {cafes, applied, sort, name, loc, mapboxBounds});
     }
     else { // need to geocode
         getCoordinates(loc).then(start => {
@@ -73,12 +79,12 @@ module.exports.search = catchAsync(async(req, res) => {
                 const distance = haversine(start, end, {unit: 'mile'});
                 cafe.distance = Math.round(distance*10)/10; // save distance to each result
             }   
-            const maxDist = req.query.df || 30; // within 30 miles or input from distance filter
+            const maxDist = req.query.df || 10; // within 30 miles or input from distance filter
             let filteredCafes = cafes.filter(cafe => cafe.distance < maxDist); // remove cafes that are too far
             if (sort === 'dist' || sort === '') {
                 filteredCafes.sort((a,b) => a.distance > b.distance ? 1 : -1); // default: sort by distance
             }
-            res.render('cafes/searchResults', {cafes: filteredCafes, applied, sort, name, loc});
+            res.render('cafes/searchResults', {cafes: filteredCafes, applied, sort, name, loc, mapboxBounds});
         }).catch(err => {
             console.log(err);
             req.flash('error', 'Sorry, your request could not be processed!');

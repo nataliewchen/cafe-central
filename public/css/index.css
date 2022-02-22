@@ -3,6 +3,10 @@ main {
   margin-right: 1em;
 }
 
+#toggleOptions:hover {
+  cursor: pointer;
+}
+
 .options-card {
   padding: 0;
 }
