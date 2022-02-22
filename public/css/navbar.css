@@ -35,6 +35,9 @@ input[type="text"]:focus {
   width: 50%;
   margin: 0.5rem auto;
 }
+#user-dropdown {
+  z-index: 2000;
+}
 
 #searchBar {
   background-color: white;

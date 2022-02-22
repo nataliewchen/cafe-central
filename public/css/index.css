@@ -7,8 +7,19 @@ main {
   cursor: pointer;
 }
 
+#options,
+#options .btn-group label,
+#options .btn-group-vertical label,
+#options .btn {
+  font-size: 0.8em;
+}
+
 .options-card {
   padding: 0;
+}
+
+#priceFilters .btn-group label {
+  font-size: 0.8em;
 }
 
 .category {
@@ -23,6 +34,18 @@ main {
 
 .cafe-card:hover {
   transform: scale(1.03);
+}
+
+.cafe-card .card-title {
+  font-size: 1.2em;
+}
+
+.cafe-card .card-subtitle {
+  font-size: 0.9em;
+}
+
+.cafe-card p {
+  font-size: 0.8em;
 }
 
 .sticky-top {

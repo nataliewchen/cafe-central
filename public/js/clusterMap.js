@@ -1,15 +1,12 @@
 mapboxgl.accessToken = mapboxToken;
 
-// const allCoords = cafes.features.map((cafe,i) =>  [cafe.geometry.coordinates[0], cafe.geometry.coordinates[1]]);
-console.log(mapboxBounds);
-
 if (cafes.features) {
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/light-v10'
     });
 
-    map.fitBounds(mapboxBounds, {padding: 100});
+    map.fitBounds(mapboxBounds, {padding: 50});
 
     map.on('load', () => {
 

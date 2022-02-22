@@ -9,6 +9,7 @@
 }
 
 .pin {
+  position: relative;
   z-index: 1;
   width: 40px;
   height: 50px;
@@ -18,6 +19,10 @@
 .pin:hover,
 .highlight {
   filter: invert(1);
+  z-index: 10;
+}
+
+.mapboxgl-marker:hover {
   z-index: 10;
 }
 
@@ -94,11 +99,26 @@
 }
 
 .cafe-card .card-title {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 .cafe-card .card-subtitle {
-  font-size: 1em;
+  font-size: 0.9em;
+}
+
+.cafe-card p {
+  font-size: 0.8em;
+}
+
+#toggleOptions:hover {
+  cursor: pointer;
+}
+
+#options,
+#options .btn-group label,
+#options .btn-group-vertical label,
+#options .btn {
+  font-size: 0.8em;
 }
 
 @media screen and (min-width: 993px) and (max-width: 1140px) {
@@ -116,20 +136,6 @@
   }
 }
 
-/* @media screen and (min-width: 769px) and (max-width: 992px) {
-  #options {
-    margin: 0;
-  }
-
-  #options label {
-    font-size: 1.5vw;
-  }
-
-  .cafe-card {
-    font-size: 1.5vw;
-  }
-} */
-
 @media screen and (min-width: 577px) and (max-width: 992px) {
   #options {
     margin: 0;
@@ -139,9 +145,9 @@
     font-size: 1.5vw;
   }
 
-  .cafe-card {
+  /* .cafe-card {
     font-size: 1.5vw;
-  }
+  } */
 
   .card-body {
     padding-left: 0;
