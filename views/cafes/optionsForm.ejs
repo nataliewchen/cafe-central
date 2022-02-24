@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="/css/options.css">
+
+<form action="<%= url %>" method="get" id="sortAndFilter" class="row">
+  <div class="card mb-3 text-center options-card">
+    <div class="card-header mb-1">Sort By</div>
+    <select id="sort-by" name="srt" class="w-75 mx-auto my-3">
+      <option selected></option>
+      <option value="review" <% if(sort === 'review') { %> selected <% } %>>Avg. Review</option>
+      <option value="nameAsc" <% if(sort === 'nameAsc') { %> selected <% } %>>Name: A to Z
+      </option>
+      <option value="nameDes" <% if(sort === 'nameDes') { %> selected <% } %>>Name: Z to A
+      </option>
+    </select>
+  </div>
+  <div class="card options-card mb-3" id="filters">
+    <div class="card-header text-center">Filters</div>
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item">
+        <p class="mb-1">Price</p>
+        <div class="btn-group btn-group-sm w-100 mb-2" role="group" aria-label="price filter button group">
+          <input type="checkbox" class="btn-check" name="pf" value="1" id="price1" autocomplete="off"
+            <% if (applied.price && applied.price.includes(1)) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary w-25" for="price1">$</label>
+
+          <input type="checkbox" class="btn-check" name="pf" value="2" id="price2" autocomplete="off"
+            <% if (applied.price && applied.price.includes(2)) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary w-25" for="price2">$$</label>
+
+          <input type="checkbox" class="btn-check" name="pf" value="3" id="price3" autocomplete="off"
+            <% if (applied.price && applied.price.includes(3)) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary w-25" for="price3">$$$</label>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <p class="mb-1">Category</p>
+        <div class="btn-group btn-group-sm w-100 mb-2" role="group" aria-label="category filter button group">
+          <input type="checkbox" class="btn-check" name="cf" value="coffee" id="coffee" autocomplete="off"
+            <% if (applied.categories && applied.categories.includes("Coffee")) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary" for="coffee">Coffee</label>
+
+          <input type="checkbox" class="btn-check" name="cf" value="boba" id="boba" autocomplete="off"
+            <% if (applied.categories && applied.categories.includes("Boba")) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary" for="boba">Boba</label>
+
+          <input type="checkbox" class="btn-check" name="cf" value="bakery" id="Bakery" autocomplete="off"
+            <% if (applied.categories && applied.categories.includes("Bakery")) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary" for="Bakery">Bakery</label>
+        </div>
+        <div class="">
+          <input class="form-check-input" type="checkbox" name="mult" id="multCat" <% if (applied.mult) { %> checked
+            <% } %>>
+          <label class="form-check-label" for="multCat"><small>
+              Match all selected</small>
+          </label>
+        </div>
+      </li>
+      <% if(url.includes('/cafes/s')) { %>
+      <li class="list-group-item">
+        <p class="mb-1">Distance</p>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="df" value="5" id="distance5"
+            <% if (applied.distance==="5") { %> checked <% } %>>
+          <label class="form-check-label" for="distance5">5 miles</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="df" value="10" id="distance10"
+            <% if (applied.distance==="10") { %> checked <% } %>>
+          <label class="form-check-label" for="distance10">10 miles</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="df" value="15" id="distance15"
+            <% if (applied.distance==="15") { %> checked <% } %>>
+          <label class="form-check-label" for="distance15">15 miles</label>
+        </div>
+      </li>
+      <% } %>
+
+    </ul>
+  </div>
+  <div class="card mb-3 text-center options-card">
+    <li class="list-group item">
+      <input class="btn btn-outline-primary w-75 mx-auto mt-2 d-lg-none" type="submit" id="apply" value="Apply">
+      <input class="btn btn-outline-danger w-75 mx-auto my-2" type="button" id="reset" value="Reset">
+      <input class="btn btn-outline-secondary w-75 mx-auto mb-2 d-lg-none" type="button" data-bs-dismiss="modal"
+        value="Cancel">
+    </li>
+  </div>
+
+  <% if (loc) { %>
+  <input type="hidden" name="loc" value="<%= loc %>">
+  <% } %>
+  <% if (name) { %>
+  <input type="hidden" name="name" value="<%= name %>">
+  <% } %>
+</form>

@@ -78,6 +78,13 @@ cafeSchema.virtual('cityState').get(function() {
     return `${parsed.city}, ${parsed.state}`;
 });
 
+// loc format: city, state
+// for index pages (full address not needed)
+cafeSchema.virtual('shortAddress').get(function() {
+  const parsed = parseAddress.parseLocation(this.location);
+  return `${parsed.number ? parsed.number : ''} ${parsed.prefix ? parsed.prefix : ''} ${parsed.street ? parsed.street : ''} ${parsed.type ? parsed.type : ''}`;
+});
+
 // average rating based on all added reviews
 cafeSchema.virtual('avgRating').get(function() {
     if (this.reviews.length > 0) {

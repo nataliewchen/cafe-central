@@ -10,6 +10,9 @@ reset.addEventListener('click', function () {
     form.elements.pf.forEach(checkbox => checkbox.checked = false); // reset price filters
     form.elements.cf.forEach(checkbox => checkbox.checked = false); // reset category filters
     form.elements.mult.checked = false;
-    form.elements.df.forEach(checkbox => checkbox.checked = false); // reset distance filters
+    if (form.elements.df) {
+      form.elements.df.forEach(checkbox => checkbox.checked = false); // reset distance filters (search results only)
+    }
+    form.elements.srt.value = '';
     form.submit();
 })

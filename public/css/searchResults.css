@@ -64,30 +64,6 @@
   z-index: 10;
 }
 
-.btn-outline-secondary {
-  color: black;
-}
-
-.btn-check:checked + .btn-outline-secondary {
-  background-color: lightblue;
-}
-
-.btn-check:focus + .btn-outline-secondary {
-  box-shadow: none;
-}
-
-.form-check-input:checked {
-  background-color: lightblue;
-}
-
-.form-check-input:focus {
-  box-shadow: none;
-}
-
-.btn-outline-danger:focus {
-  box-shadow: none;
-}
-
 .stars {
   color: goldenrod;
   letter-spacing: 0.1em;
@@ -110,21 +86,7 @@
   font-size: 0.8em;
 }
 
-#toggleOptions:hover {
-  cursor: pointer;
-}
-
-#options,
-#options .btn-group label,
-#options .btn-group-vertical label,
-#options .btn {
-  font-size: 0.8em;
-}
-
 @media screen and (min-width: 993px) and (max-width: 1140px) {
-  #options label {
-    font-size: 1.2vw;
-  }
   .cafe-card {
     font-size: 1.2vw;
   }
@@ -139,10 +101,6 @@
 @media screen and (min-width: 577px) and (max-width: 992px) {
   #options {
     margin: 0;
-  }
-
-  #options label {
-    font-size: 1.5vw;
   }
 
   /* .cafe-card {
@@ -165,6 +123,6 @@
     font-size: 0.79em;
   }
   #options {
-    margin: 0;
+    margin: 0 1em;
   }
 }

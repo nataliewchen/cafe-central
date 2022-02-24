@@ -56,16 +56,12 @@ module.exports.search = catchAsync(async(req, res) => {
     const filter = createFilter(applied); // based on filters and name
     const cafes = await sortCafes(sort, filter);
 
-    const boundCoords = cafes.slice(0,5).map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
+    const boundCoords = cafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
     const bounds = geolib.getBounds(boundCoords);
 
     const mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
 
     if (!loc) { // no geocoding
-      // const allCoords = cafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}))
-      // console.log(allCoords);
-      // const center = geolib.getCenter(allCoords);
-      // console.log(center);
         res.render('cafes/searchResults', {cafes, applied, sort, name, loc, mapboxBounds});
     }
     else { // need to geocode

@@ -6,7 +6,7 @@ if (cafes.features) {
         style: 'mapbox://styles/mapbox/light-v10'
     });
 
-    map.fitBounds(mapboxBounds, {padding: 50});
+    map.fitBounds(mapboxBounds);
 
     map.on('load', () => {
 

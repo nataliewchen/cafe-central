@@ -1,0 +1,46 @@
+#toggleOptions:hover {
+  cursor: pointer;
+}
+
+#options,
+#options .btn-group label,
+#options .btn-group-vertical label,
+#options .btn {
+  font-size: 0.8em;
+}
+
+.options-card {
+  padding: 0;
+}
+
+#priceFilters .btn-group label {
+  font-size: 0.8em;
+}
+
+.btn-group-sm > .btn {
+  padding: 0.25rem 0;
+}
+
+.btn-outline-secondary {
+  color: black;
+}
+
+.btn-check:checked + .btn-outline-secondary {
+  background-color: lightblue;
+}
+
+.btn-check:focus + .btn-outline-secondary {
+  box-shadow: none;
+}
+
+.form-check-input:checked {
+  background-color: lightblue;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+}
+
+.btn-outline-danger:focus {
+  box-shadow: none;
+}
