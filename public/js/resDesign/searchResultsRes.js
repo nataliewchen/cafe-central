@@ -1,8 +1,8 @@
 // const toggleOptions = document.querySelector('#toggleOptions');
 // const options = document.querySelector('#options');
-// const results = document.querySelector('#results');
+const results = document.querySelector('#results');
 // const resultsContainer = document.querySelector('#resultsContainer');
-// const mapContainer = document.querySelector('#mapContainer');
+const mapContainer = document.querySelector('#mapContainer');
 // const resultsColumn = document.querySelectorAll('.resultsColumn');
 
 // document.querySelector('main').classList.remove('mt-lg-5', 'mt-2', 'mt-md-3');
@@ -21,19 +21,19 @@
 //     }
 // })
 
-// const toggleList = document.querySelector('#toggleList');
-// const toggleMap = document.querySelector('#toggleMap');
+const toggleList = document.querySelector('#toggleList');
+const toggleMap = document.querySelector('#toggleMap');
 
-// toggleList.addEventListener('click', ()=> {
-//     toggleList.classList.toggle('active');
-//     toggleMap.classList.toggle('active');
-//     results.classList.remove('d-none');
-//     mapContainer.classList.add('d-none');
-// })
+toggleList.addEventListener('click', ()=> {
+    toggleList.classList.toggle('active');
+    toggleMap.classList.toggle('active');
+    results.classList.remove('d-none');
+    mapContainer.classList.add('d-none');
+})
 
-// toggleMap.addEventListener('click', () => {
-//     toggleList.classList.toggle('active');
-//     toggleMap.classList.toggle('active');
-//     results.classList.add('d-none');
-//     mapContainer.classList.remove('d-none');
-// })
+toggleMap.addEventListener('click', () => {
+    toggleList.classList.toggle('active');
+    toggleMap.classList.toggle('active');
+    results.classList.add('d-none');
+    mapContainer.classList.remove('d-none');
+})

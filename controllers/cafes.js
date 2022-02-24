@@ -75,10 +75,13 @@ module.exports.search = catchAsync(async(req, res) => {
                 const distance = haversine(start, end, {unit: 'mile'});
                 cafe.distance = Math.round(distance*10)/10; // save distance to each result
             }   
-            const maxDist = req.query.df || 5; // within 5 miles or input from distance filter
+            const maxDist = req.query.df || 15; // within 12 miles or input from distance filter
             let filteredCafes = cafes.filter(cafe => cafe.distance < maxDist); // remove cafes that are too far
             if (sort === 'dist' || sort === '') {
                 filteredCafes.sort((a,b) => a.distance > b.distance ? 1 : -1); // default: sort by distance
+            }
+            if (filteredCafes.length > 10) {
+              filteredCafes = filteredCafes.slice(0, 10);
             }
             res.render('cafes/searchResults', {cafes: filteredCafes, applied, sort, name, loc, mapboxBounds});
         }).catch(err => {

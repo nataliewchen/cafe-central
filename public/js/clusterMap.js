@@ -67,12 +67,12 @@ if (cafes.features) {
 
     const cafeCards = document.querySelectorAll('.cafe-card');
     cafeCards.forEach((card, i) => {
-        card.addEventListener('mouseover', () => {
-            document.querySelector(`#pin${i}`).classList.add('highlight');
-        });
-        card.addEventListener('mouseout', () => {
-            document.querySelector(`#pin${i}`).classList.remove('highlight');
-        });
+      card.addEventListener('mouseenter', () => {
+        document.querySelector(`#pin${i}`).parentElement.classList.add('highlight');
+      });
+      card.addEventListener('mouseleave', () => {
+        document.querySelector(`#pin${i}`).parentElement.classList.remove('highlight');
+      });
     })
 }
 
