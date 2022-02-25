@@ -56,12 +56,10 @@ module.exports.search = catchAsync(async(req, res) => {
     const filter = createFilter(applied); // based on filters and name
     const cafes = await sortCafes(sort, filter);
 
-    const boundCoords = cafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
-    const bounds = geolib.getBounds(boundCoords);
-
-    const mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
-
     if (!loc) { // no geocoding
+      const boundCoords = cafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
+      const bounds = geolib.getBounds(boundCoords);
+      const mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
         res.render('cafes/searchResults', {cafes, applied, sort, name, loc, mapboxBounds});
     }
     else { // need to geocode
@@ -83,6 +81,11 @@ module.exports.search = catchAsync(async(req, res) => {
             if (filteredCafes.length > 10) {
               filteredCafes = filteredCafes.slice(0, 10);
             }
+
+            const boundCoords = filteredCafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
+            const bounds = geolib.getBounds(boundCoords);
+            const mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
+
             res.render('cafes/searchResults', {cafes: filteredCafes, applied, sort, name, loc, mapboxBounds});
         }).catch(err => {
             console.log(err);

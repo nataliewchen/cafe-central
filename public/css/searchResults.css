@@ -3,9 +3,28 @@
   top: 5.5em;
 }
 
+.sticky-top-map {
+  position: sticky;
+  top: 4em;
+  height: 85vh;
+}
+
+#mapContainer {
+  height: 85vh;
+}
+
+/* #mapContainer .hide-map {
+  height: 0;
+} */
+
+.hide-map {
+  position: absolute;
+  opacity: 0;
+}
+
 #map {
   width: 100%;
-  height: 85vh;
+  height: 100%;
 }
 
 .pin {
@@ -79,12 +98,6 @@
   font-size: 0.8em;
 }
 
-@media screen and (min-width: 992px) {
-  .sticky-top-map {
-    top: 4em;
-  }
-}
-
 @media screen and (min-width: 993px) and (max-width: 1140px) {
   .cafe-card {
     font-size: 1.2vw;
@@ -94,6 +107,12 @@
     font-size: 1vw;
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 767px) {
+  .cafe-card {
+    font-size: 2vw;
   }
 }
 
@@ -113,7 +132,7 @@
 
 @media screen and (max-width: 576px) {
   .cafe-card {
-    font-size: 3vw;
+    font-size: 3.5vw;
   }
   .card-body {
     padding: 0;

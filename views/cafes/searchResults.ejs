@@ -26,16 +26,20 @@
   </div>
   <div class="row bg-light mb-3 align-items-center justify-content-between d-lg-none" id="controls">
     <div class="col-auto">
-      <button type="button" class="btn btn-outline-dark float-end" data-bs-toggle="modal"
+      <button type="button" class="btn float-end" data-bs-toggle="modal"
         data-bs-target="#optionsModal">
         <i class="bi bi-sliders"></i>
       </button>
     </div>
     <div class="col-auto d-sm-none">
-      <div class="btn-group">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="mapViewSwitch">
+        <label class="form-check-label" for="mapViewSwitch">Map View</label>
+      </div>
+      <!-- <div class="btn-group">
         <a href="#" id="toggleList" class="btn btn-secondary btn-sm active" aria-current="page">List</a>
         <a href="#" id="toggleMap" class="btn btn-secondary btn-sm">Map</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -68,7 +72,7 @@
                 </div>
                 <h6 class="card-subtitle text-muted"><small><% if(cafe.distance) { %>
                     <%= cafe.distance %>
-                    mi<% } %><i class="bi bi-arrow-right mx-1"></i><%= cafe.shortAddress %></small></h6>
+                    mi <i class="bi bi-arrow-right mx-1"></i><% } %></i><%= cafe.shortAddress %></small></h6>
                 <p class="card-text mb-1">
                   <%- cafe.stars %><%- cafe.reviewLen %></p>
                 <p class="card-text">
@@ -92,11 +96,10 @@
       </div>
     </div>
   </div>
-  <div id="mapContainer" class="col-12 col-sm-6 col-lg-5 d-none d-sm-block">
-    <div class="sticky-top-below sticky-top-map">
+  <div id="mapContainer" class="col-12 col-sm-6 col-lg-5 d-block">
+    <div class="sticky-top-map">
       <div id="map" class=""></div>
-
-    </div>
+      </div>
   </div>
 </div>
 
