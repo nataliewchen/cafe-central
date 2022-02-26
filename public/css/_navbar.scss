@@ -23,6 +23,11 @@
   z-index: 2000;
 }
 
+// navbar link
+#search {
+  user-select: none;
+}
+
 /* div containing form */
 #searchBar {
   background-color: white;

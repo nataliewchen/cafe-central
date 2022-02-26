@@ -1,25 +1,10 @@
 <%- layout('/layout/boilerplate') %>
-<link rel="stylesheet" href="/css/home.css">
-
+<link rel="stylesheet" href="/css/homeCover.css">
 
 <div class="cover d-flex flex-column mt-5">
-    <h1 class="display-4 mb-4">Find your next cup of happiness.</h1>
-    <h6 class="mt-3">Start by entering a cafe name, a location, or both!</h6>
-    <form class="d-md-flex align-items-center" id="homeSearch" action="/cafes/s" method="get">
-        <label class="visually-hidden" for="name">Name</label>
-        <div class="input-group">
-            <div class="input-group-text"><i class="bi bi-search"></i></div>
-            <input type="text" class="form-control" placeholder="Name" name="name" id="inputName" aria-label="cafe name"
-                <% if(url.includes('/cafes/s') && name) { %> value="<%= name %>" <% } %>>
-        </div>
-        <label class="visually-hidden" for="loc">Location</label>
-        <div class="input-group">
-            <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
-            <input type="text" class="form-control" placeholder="Location" name="loc" id="inputLoc"
-                aria-label="location" <% if(url.includes('/cafes/s') && loc) { %> value="<%= loc %>" <% } %>>
-        </div>
-        <div class="btn-group" id="searchBarBtns" role="group" aria-label="Basic example">
-            <button class="btn btn-success" type="submit"><i class="fw-bold bi bi-arrow-right"></i></button>
-        </div>
-    </form>
+  <h1 class="mb-4">Find your next cup of happiness.</h1>
+  <h6 class="mt-3">Start by entering a cafe name, a location, or both!</h6>
+  <div class="home-search">
+    <%- include('./partials/searchBar') %>
+  </div>
 </div>

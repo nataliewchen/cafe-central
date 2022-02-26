@@ -48,7 +48,8 @@
   </div>
 </nav>
 <div class="container-fluid d-none border-top text-center" id="searchBar">
-  <form class="d-sm-flex align-items-center py-3" action="/cafes/s" method="get">
+  <%- include('../partials/searchBar') %>
+  <!-- <form class="d-sm-flex align-items-center py-3" action="/cafes/s" method="get">
     <label class="visually-hidden" for="name">Name</label>
     <div class="input-group">
       <div class="input-group-text"><i class="bi bi-search"></i></div>
@@ -65,7 +66,7 @@
       <button class="btn btn-outline-secondary" type="button" id="cancel"><i class="fbi bi-x-lg"></i><span
           class="buttonText text-secondary ms-1 d-inline d-sm-none">Cancel</span></button>
     </div>
-  </form>
+  </form> -->
 </div>
 
 <script src="/js/toggleNavbar.js"></script>

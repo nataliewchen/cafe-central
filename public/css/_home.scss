@@ -1,0 +1,59 @@
+.cover {
+  line-height: 0.1em;
+  color: white;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+
+  .home-search {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .search-bar-btns {
+    display: none;
+  }
+
+  #home-search-btn {
+    display: inline !important;
+  }
+
+  /* left aligned */
+  @include mq(md) {
+    margin: 0 0 0 3em;
+    text-align: left;
+    width: 75%;
+
+    .home-search {
+      margin: 0;
+    }
+  }
+
+  @include mq(lg) {
+    width: 60%;
+  }
+
+  @include mq(xl) {
+    width: 40%;
+  }
+
+  h1 {
+    font-family: "Source Serif Pro", serif;
+    font-size: 3em;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-weight: bold;
+  }
+
+  h1,
+  h6 {
+    text-shadow: 0 0 5px gray;
+  }
+}
+
+/* to prevent cover from stretching and leaving space behind banner img */
+@media only screen and (max-width: 320px) {
+  .cover h1 {
+    font-size: 2.5em;
+  }
+}

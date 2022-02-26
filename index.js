@@ -55,7 +55,7 @@ app.engine('ejs', ejsMate);
 // other express configs
 app.use(express.urlencoded({ extended: true })); // parsing data from forms
 app.use(methodOverride('_method')); // for non get/post reqs
-app.use(express.static(path.join(__dirname, 'public'))); // serving static assets
+app.use(express.static(path.join(__dirname, '/public'))); // serving static assets
 app.use(mongoSanitize()); // prevents mongo injection
 
 

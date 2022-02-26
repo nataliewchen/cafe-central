@@ -1,0 +1,20 @@
+<form class="d-sm-flex align-items-center py-3" action="/cafes/s" method="get">
+  <label class="visually-hidden" for="name">Name</label>
+  <div class="input-group">
+    <div class="input-group-text"><i class="bi bi-search"></i></div>
+    <input type="text" class="form-control" placeholder="Name" name="name" id="inputName" aria-label="cafe name">
+  </div>
+  <label class="visually-hidden" for="loc">Location</label>
+  <div class="input-group">
+    <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+    <input type="text" class="form-control" placeholder="Location" name="loc" id="inputLoc">
+  </div>
+  <div class="btn-group search-bar-btns mt-2 mt-sm-0 ms-sm-2" role="group" aria-label="search buttons">
+    <button class="btn btn-sm btn-outline-success search-btn" type="submit"><i
+        class="fw-bold bi bi-arrow-right"></i><span class="buttonText ms-1 d-inline d-sm-none">Search</span></button>
+    <button class="btn btn-sm btn-outline-secondary cancel-btn" type="button"><i class="fbi bi-x-lg"></i><span
+        class="buttonText ms-1 d-inline d-sm-none">Cancel</span></button>
+  </div>
+  <button class="btn btn-sm btn-success d-none mt-2 mt-sm-0 ms-sm-2 search-btn" id="home-search-btn" type="submit"><i
+      class="fw-bold bi bi-arrow-right"></i><span class="buttonText ms-1 d-inline d-sm-none">Search</span></button>
+</form>
