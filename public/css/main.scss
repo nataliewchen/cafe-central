@@ -1,0 +1,22 @@
+@import "./_mixins";
+@import "./_navbar";
+
+body {
+  font-family: "Shippori Antique", sans-serif;
+}
+
+.container-fluid {
+  font-size: 1.1em;
+}
+
+// .btn:focus {
+//   box-shadow: none;
+// }
+
+.dropdown-item:focus {
+  background-color: lightblue;
+}
+
+input[type="text"]:focus {
+  box-shadow: none;
+}

@@ -7,7 +7,6 @@ cloudinary.config({ // connecting via my credentials
     api_secret: process.env.CLOUDINARY_SECRET
 });
 
-
 const storage = new CloudinaryStorage({ //creating an instance of cloudinary storage in this file
     cloudinary,
     params: {

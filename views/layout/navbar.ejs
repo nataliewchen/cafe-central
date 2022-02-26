@@ -9,17 +9,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse ms-auto" id="navbarNavDropdown">
-      <div class="navbar-nav text-center ms-auto" id="navLinks">
+      <div class="navbar-nav text-center align-items-center ms-auto" id="navLinks">
         <a class="nav-link" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="/cafes">Browse</a>
-        <a class="nav-link" href="/cafes/new">Add</a>
+        <a class="nav-link" href="/cafes/new">Add Cafe</a>
         <li class="nav-link" id="search">Search</li>
       </div>
       <div class="navbar-nav ms-auto text-center">
         <% if (!currentUser) { %>
-        <hr class="user-links-div d-none">
-        <a class="nav-btn btn btn-outline-dark me-md-1 me-lg-3" id="login" href="/login">Login</a>
-        <a class="nav-btn btn btn-outline-dark" id="register" href="/register">Register</a>
+        <div class="d-none d-md-block">
+          <a class="nav-btn btn btn-outline-dark me-md-1 me-lg-3" id="login" href="/login">Login</a>
+          <a class="nav-btn btn btn-outline-dark" id="register" href="/register">Register</a>
+        </div>
+        <div class="d-block d-md-none">
+          <hr class="user-links-div">
+          <a class="nav-btn nav-link me-md-1 me-lg-3" id="login" href="/login">Login</a>
+          <a class="nav-btn nav-link" id="register" href="/register">Register</a>
+        </div>
         <% } else { %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -53,14 +59,13 @@
       <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
       <input type="text" class="form-control" placeholder="Location" name="loc" id="inputLoc">
     </div>
-    <div class="btn-group" id="searchBarBtns" role="group" aria-label="Basic example">
+    <div class="btn-group" id="searchBarBtns" role="group" aria-label="search buttons">
       <button class="btn btn-outline-success" type="submit"><i class="fw-bold bi bi-arrow-right"></i><span
-          class="buttonText ms-1">Search</span></button>
+          class="buttonText ms-1 d-inline d-sm-none">Search</span></button>
       <button class="btn btn-outline-secondary" type="button" id="cancel"><i class="fbi bi-x-lg"></i><span
-          class="buttonText text-secondary ms-1">Cancel</span></button>
+          class="buttonText text-secondary ms-1 d-inline d-sm-none">Cancel</span></button>
     </div>
   </form>
 </div>
 
 <script src="/js/toggleNavbar.js"></script>
-<script src="/js/resDesign/navbarRes.js"></script>

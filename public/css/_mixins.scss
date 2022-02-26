@@ -1,0 +1,57 @@
+@mixin mq($breakpoint) {
+  @if $breakpoint==xs {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+  @if $breakpoint==sm {
+    @media only screen and (min-width: 576px) {
+      @content;
+    }
+  }
+  @if $breakpoint==md {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint==lg {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+  @if $breakpoint==xl {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+  @if $breakpoint==xxl {
+    @media only screen and (min-width: 1400px) {
+      @content;
+    }
+  }
+}
+
+// @mixin res-width($mobile, $tablet, $tabletWide, $desktop, $desktopWide) {
+//   @include mq(mobile) {
+//     width: $mobile;
+//   }
+//   @include mq(tablet) {
+//     width: $tablet;
+//   }
+//   @include mq(tabletWide) {
+//     width: $tabletWide;
+//   }
+//   @include mq(desktop) {
+//     width: $desktop;
+//   }
+//   @include mq(desktopWide) {
+//     width: $desktopWide;
+//   }
+// }
+
+// @mixin flexbox($direction: row, $justify: center, $align: center) {
+//   display: flex;
+//   flex-direction: $direction;
+//   justify-content: $justify;
+//   align-items: $align;
+// }

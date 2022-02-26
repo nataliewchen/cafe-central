@@ -1,5 +1,5 @@
 const search = document.querySelector('#search'); // button
-const cancel = document.querySelector('#cancel');
+const cancel = document.querySelector('#cancel'); // button
 
 const searchBar = document.querySelector('#searchBar');
 const inputName = document.querySelector('#inputName');
