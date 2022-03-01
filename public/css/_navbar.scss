@@ -1,6 +1,6 @@
 .nav-link {
   padding: 0.25rem;
-  margin: 0 0.5rem;
+  margin: 0 0.25rem;
   border-bottom: 0.1rem solid transparent;
 
   &:hover {
@@ -9,8 +9,8 @@
     cursor: pointer;
   }
 
-  @include mq(md) {
-    margin: 0 0.25rem;
+  @include mq(lg) {
+    margin: 0 0.5rem;
   }
 }
 

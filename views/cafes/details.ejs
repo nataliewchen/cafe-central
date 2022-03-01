@@ -1,192 +1,174 @@
 <%- layout('/layout/boilerplate') %>
-<link rel="stylesheet" href="/css/stars.css">
-<link rel="stylesheet" href="/css/details.css">
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div id="imgCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <% cafe.images.forEach((img, i) => { %>
-                    <div class="carousel-item <%= i===0 ? "active" : "" %>">
-                        <img src="<%= img.square %>" class="d-block w-100" alt="...">
-                    </div>
-                    <% }) %>
-                </div>
-                <% if (cafe.images.length > 1) { %>
-                <button class="carousel-control-prev" type="button" data-bs-target="#imgCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#imgCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-                <% } %>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-8 col-md-5 col-lg-4">
+      <div id="imgCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% cafe.images.forEach((img, i) => { %>
+          <div class="carousel-item <%= i===0 ? "active" : "" %>">
+            <img src="<%= img.square %>" class="d-block w-100" alt="...">
+          </div>
+          <% }) %>
         </div>
-        <div class="col-md-6">
-            <div class="card border-0">
-                <div class="card-body">
-                    <div class="">
-                        <h2 class="card-title d-inline align-middle"><%= cafe.name %></h2>
-                        <span class="favorites position-absolute">
-                            <% if (currentUser && !inFavorites) { %>
-                            <form action="/user/<%= currentUser.id %>/cafes/<%= cafe.id %>" method="post"
-                                class="d-inline">
-                                <button id="addFavorite" type="submit" class="btn btn-white p-0"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Favorites?">
-                                    <i class="bi bi-bookmark-heart"></i>
-                                </button>
-                            </form>
-                            <% } else if (currentUser && inFavorites) {%>
-                            <form action="/user/<%= currentUser.id %>/cafes/<%= cafe.id %>?_method=delete" method="post"
-                                class="d-inline">
-                                <button id="removeFavorite" type="submit" class="btn btn-white p-0"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Remove from Favorites?">
-                                    <i class="bi bi-bookmark-heart-fill"></i>
-                                </button>
-                            </form>
-                            <% } %>
+        <% if (cafe.images.length > 1) { %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imgCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imgCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <% } %>
+      </div>
+    </div>
+    <div class="col-11 col-md-6">
+      <div class="card details-card border-0">
+        <div class="card-body">
+          <div class="">
+            <h2 class="card-title d-inline align-middle fs-3"><%= cafe.name %></h2>
+            <span class="favorites position-absolute">
+              <% if (currentUser && !inFavorites) { %>
+              <form action="/user/<%= currentUser.id %>/cafes/<%= cafe.id %>" method="post" class="d-inline">
+                <button id="addFavorite" type="submit" class="btn btn-white p-0" data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="Add to Favorites?">
+                  <i class="bi bi-bookmark-heart"></i>
+                </button>
+              </form>
+              <% } else if (currentUser && inFavorites) {%>
+              <form action="/user/<%= currentUser.id %>/cafes/<%= cafe.id %>?_method=delete" method="post"
+                class="d-inline">
+                <button id="removeFavorite" type="submit" class="btn btn-white p-0" data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="Remove from Favorites?">
+                  <i class="bi bi-bookmark-heart-fill"></i>
+                </button>
+              </form>
+              <% } %>
 
-                        </span>
+            </span>
 
-                    </div>
-                    <h6 class="card-subtitle mt-1">
-                        <%- cafe.stars %>
-                        <% if (cafe.reviews.length > 0) { %>
-                        <a href="#reviews" class="align-middle">(<%= cafe.reviews.length %> reviews)</a>
-                        <% } %>
-                    </h6>
-                    <p class="card-text mt-3"><%= cafe.priceString %> &nbsp;&bull;&nbsp;
-                        <% cafe.categories.forEach((cat) => { %>
-                        <span class="category"><%= cat %></span> <% }) %></p>
-                    <ul class="list-group list-group-flush mx-2">
-                        <li class="list-group-item"><i class="bi bi-person me-3"></i>Added by
-                            <%= cafe.author.username %> on
-                            <%= cafe.shortDate %>
-                            <% if (currentUser && (cafe.author.equals(currentUser.id) || currentUser.id === '61b158f8f0e48943aab0fa5f')) { %>
-                            <a href="/cafes/<%= cafe.id %>/edit" class="card-link ms-2"><i
-                                    class="bi bi-pencil-square me-1"></i><small>Edit</small></a><% } %> </li>
-                        <li class="list-group-item"><i class="bi bi-window me-3"></i><a href="<%= cafe.website %>"
-                                target="_blank" rel="noopener"><%= cafe.website %></a>
-                        </li>
-                        <li class="list-group-item"><i class="bi bi-telephone me-3"></i><%= cafe.phone %> </li>
-                        <li class="list-group-item"><i class="bi bi-geo-alt me-3"></i><%= cafe.location %> </li>
-                    </ul>
-                    <div id="map"></div>
-                </div>
-            </div>
+          </div>
+          <h6 class="card-subtitle mt-1">
+            <%- cafe.stars %>
+            <% if (cafe.reviews.length > 0) { %>
+            <a href="#reviews" class="align-middle">(<%= cafe.reviews.length %> reviews)</a>
+            <% } %>
+          </h6>
+          <p class="card-text mt-3"><%= cafe.priceString %> &nbsp;&bull;&nbsp;
+            <% cafe.categories.forEach((cat) => { %>
+            <span class="category"><%= cat %></span> <% }) %></p>
+          <ul class="list-group list-group-flush mx-2">
+            <li class="list-group-item"><i class="bi bi-person me-3"></i>Added by
+              <%= cafe.author.username %>
+              <% if (currentUser && (cafe.author.equals(currentUser.id) || currentUser.id === '61b158f8f0e48943aab0fa5f')) { %>
+              <a href="/cafes/<%= cafe.id %>/edit" class="btn btn-sm btn-outline-primary ms-1"><i
+                  class="bi bi-pencil me-1"></i>Edit</a><% } %> </li>
+            <li class="list-group-item"><i class="bi bi-window me-3"></i><a href="<%= cafe.website %>" target="_blank"
+                rel="noopener"><%= cafe.website %></a>
+            </li>
+            <li class="list-group-item"><i class="bi bi-telephone me-3"></i><%= cafe.phone %> </li>
+            <li class="list-group-item"><i class="bi bi-geo-alt me-3"></i><%= cafe.location %> </li>
+          </ul>
+          <!-- <div id="details-map"></div> -->
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="details-map"></div>
+
+
+  <div class="row justify-content-evenly mt-5" id="reviews">
+    <div class="col-12 col-md-4">
+      <div class="sticky-md-top text-center text-md-start">
+        <% if (cafe.reviews.length === 0) { %>
+        <h4 class="mb-0">No reviews yet</h4>
+        <% } else { %>
+        <span class="stars stars-lg">
+          <%- cafe.stars %></span>
+        <h4 class="mb-0"><%= cafe.avgRating %> out of 5 stars</h4>
+        <h6 class="text-muted">from <%= cafe.reviews.length %> reviews </h6>
+        <% } %>
+        <p>
+          <button class="btn btn-sm btn-primary my-3" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseReviewForm" aria-expanded="false" aria-controls="collapseReviewForm">
+            Leave a Review!
+          </button>
+        </p>
+        <div class="collapse" id="collapseReviewForm">
+          <div class="card-body">
+            <% if (!currentUser) { %>
+            <form action="/cafes/<%= cafe.id %>/reviews" method="post">Please <button id="loginToReview">log
+                in</button>
+              to
+              add a review.</form>
+            <% } else {%>
+            <form action="/cafes/<%= cafe.id %>/reviews" method="post" class="mb-3 validated-form" id="starForm"
+              novalidate>
+              <div class="mb-2">
+                <div class="mb-1">
+                  <h6 class="d-inline">Rating:</h6>
+                  <span id="starFeedback" class="text-danger d-none">*required</span>
+                  <%- include('../partials/starsInput') %>
+                </div>
+              </div>
+              <div class="mb-3">
+                <h6 class="d-block">Headline:</h6>
+                <input class="form-control" type="text" name="review[headline]" id="headline" required>
+              </div>
+              <div class="mb-3">
+                <h6>Written Review:</h6>
+                <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+              </div>
+              <input class="btn btn-success mb-3" type="submit" value="Submit" id="submitReview">
+            </form>
+            <% } %>
+          </div>
+        </div>
+      </div>
     </div>
 
-
-    <div class="row justify-content-evenly mt-5" id="reviews">
-        <div class="col-12 col-md-4">
-            <div class="sticky-md-top text-sm-start text-center">
-                <% if (cafe.reviews.length === 0) { %>
-                <h4 class="mb-0">No reviews yet</h4>
-                <% } else { %>
-                <span class="stars stars-lg">
-                    <%- cafe.stars %></span>
-                <h4 class="mb-0"><%= cafe.avgRating %> out of 5 stars</h4>
-                <h6 class="text-muted">from <%= cafe.reviews.length %> reviews </h6>
-                <% } %>
-                <p>
-                    <button class="btn btn-primary my-3" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseReviewForm" aria-expanded="false" aria-controls="collapseReviewForm">
-                        Leave a Review!
-                    </button>
-                </p>
-                <div class="collapse" id="collapseReviewForm">
-                    <div class="card-body">
-                        <% if (!currentUser) { %>
-                        <form action="/cafes/<%= cafe.id %>/reviews" method="post">Please <button id="loginToReview">log
-                                in</button>
-                            to
-                            add a review.</form>
-                        <% } else {%>
-                        <form action="/cafes/<%= cafe.id %>/reviews" method="post" class="mb-3 validated-form"
-                            id="starForm" novalidate>
-                            <div class="mb-1">
-                                <div class="mb-1">
-                                    <h6 class="d-inline">Rating:</h6>
-                                    <span id="starFeedback" class="text-danger d-none">*required</span>
-                                </div>
-                                <fieldset class="starability-basic mx-auto mx-md-0">
-                                    <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]"
-                                        value="0" checked required aria-label="No rating." />
-                                    <input type="radio" id="star1" name="review[rating]" value="1" required>
-                                    <label for="star1">1 star</label>
-                                    <input type="radio" id="star2" name="review[rating]" value="2" required>
-                                    <label for="star2">2 stars</label>
-                                    <input type="radio" id="star3" name="review[rating]" value="3" required>
-                                    <label for="star3">3 stars</label>
-                                    <input type="radio" id="star4" name="review[rating]" value="4" required>
-                                    <label for="star4">4 stars</label>
-                                    <input type="radio" id="star5" name="review[rating]" value="5" required>
-                                    <label for="star5">5 stars</label>
-                                </fieldset>
-                            </div>
-                            <div class="mb-3">
-                                <h6 class="d-block">Headline:</h6>
-                                <input class="form-control" type="text" name="review[headline]" id="headline" required>
-                            </div>
-                            <div class="mb-3">
-                                <h6>Written Review:</h6>
-                                <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3"
-                                    required></textarea>
-                            </div>
-                            <input class="btn btn-success mb-3" type="submit" value="Submit" id="submitReview">
-                        </form>
-                        <% } %>
-                    </div>
-                </div>
+    <div class="col-12 col-md-5">
+      <% for (let review of cafe.reviews) { %>
+      <div class="card review-card mb-3">
+        <div class="card-body">
+          <div class="d-flex">
+            <div class="flex-grow-1">
+              <h5 class="card-title mb-0"><span class="stars"><%- review.stars %></span>
+                <%= review.headline %></h5>
             </div>
-        </div>
-
-        <div class="col-12 col-md-5">
-            <% for (let review of cafe.reviews) { %>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="d-flex">
-                        <div class="flex-grow-1">
-                            <h5 class="card-title mb-0"><span class="stars"><%- review.stars %></span>
-                                <%= review.headline %></h5>
-                        </div>
-                        <% if(currentUser && review.author.equals(currentUser.id)) { %>
-                        <div>
-                            <form action="/cafes/<%= cafe.id %>/reviews/<%= review.id %>?_method=delete" method="post">
-                                <button class="btn btn-sm btn-outline-danger" type="submit"><i
-                                        class="bi bi-trash fs-6"></i></button>
-                            </form>
-                        </div>
-                        <% } %>
-                    </div>
-                    <p class="card-text mb-2 text-muted">By <%= review.author.username %> | <%= review.longDate %></p>
-                    <p class="card-text"> <%= review.body %></p>
-
-
-                </div>
+            <% if(currentUser && review.author.equals(currentUser.id)) { %>
+            <div>
+              <form action="/cafes/<%= cafe.id %>/reviews/<%= review.id %>?_method=delete" method="post">
+                <button class="btn btn-sm btn-outline-danger" type="submit"><i class="bi bi-trash fs-6"></i></button>
+              </form>
             </div>
             <% } %>
-        </div>
+          </div>
+          <p class="card-text mb-2 text-muted">By <%= review.author.username %> | <%= review.longDate %></p>
+          <p class="card-text"> <%= review.body %></p>
 
+
+        </div>
+      </div>
+      <% } %>
     </div>
+
+  </div>
 </div>
 
 <script>
-    let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
+  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
 </script>
 
 
 
 <script src="/js/starsValidation.js"></script>
 <script>
-    const mapboxToken = '<%- process.env.MAPBOX_TOKEN %>';
-    const cafeCoordinates = <%- JSON.stringify(cafe.geometry.coordinates) %>;
+  const mapboxToken = '<%- process.env.MAPBOX_TOKEN %>';
+  const cafeCoordinates = < % -JSON.stringify(cafe.geometry.coordinates) % > ;
 </script>
 <script src="/js/detailsMap.js"></script>

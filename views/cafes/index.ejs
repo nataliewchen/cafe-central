@@ -1,67 +1,65 @@
 <%- layout('/layout/boilerplate') %>
-<link rel="stylesheet" href="/css/index.css">
 
-<div class="row justify-content-end">
-  <div class="col-6 col-lg-12">
-    <div class="mb-3 text-center">
-      <h1 class="d-inline fs-2"><%= heading %> </h1>
-      <h6 class="text-muted"><%= cafes.length %> Results</h6>
+<div class="index mx-2 mx-sm-3">
+  <div class="row justify-content-end">
+    <div class="col-6 col-lg-12">
+      <div class="mb-3 text-center">
+        <h1 class="d-inline fs-2"><%= heading %> </h1>
+        <h6 class="text-muted"><%= cafes.length %> Results</h6>
+      </div>
     </div>
+    <div class="col-3 mt-auto mb-3 d-lg-none">
+      <!-- <a class="text-decoration-none text-dark float-end" id="toggleOptions"><i class="bi bi-sliders"></i> Refine</a> -->
+      <button type="button" class="btn btn-light float-end" data-bs-toggle="modal" data-bs-target="#optionsModal">
+        <i class="bi bi-sliders"></i>
+      </button>
+    </div>
+    <hr>
   </div>
-  <div class="col-3 mt-auto mb-3 d-lg-none">
-    <!-- <a class="text-decoration-none text-dark float-end" id="toggleOptions"><i class="bi bi-sliders"></i> Refine</a> -->
-    <button type="button" class="btn btn-light float-end" data-bs-toggle="modal" data-bs-target="#optionsModal">
-      <i class="bi bi-sliders"></i>
-    </button>
-  </div>
-  <hr>
-</div>
-</div>
 
-<%- include('../partials/optionsModal') %>
-<div class="row">
-  <div id="options" class="d-none d-lg-block mb-2 col-12 col-lg-2">
-    <div class="sticky-top">
-      <%- include('../partials/optionsForm') %>
+
+  <%- include('../partials/optionsModal') %>
+  <div class="row">
+    <div id="options" class="d-none d-lg-block mb-2 col-12 col-lg-2">
+      <div class="sticky-top">
+        <%- include('../partials/optionsForm') %>
+      </div>
     </div>
-  </div>
-  <div id="results" class="col-12 col-lg-10">
-    <div class="row">
-      <% for (let cafe of cafes) { %>
-      <div class="col-sm-6 col-md-4 cafe-card d-none resultsColumn">
-        <a href="/cafes/<%= cafe.id %>" class="text-decoration-none">
-          <div class="card">
-            <div class="row g-0 align-items-center">
-              <div class="col-5 col-sm-12">
-                <img src="<%= cafe.images[0].square %>" class="card-img-top" alt="...">
-              </div>
-              <div class="col-7 col-sm-12">
-                <div class="card-body text-center text-dark">
-                  <h5 class="card-title mx-2"><%= cafe.name %></h5>
-                  <h6 class="card-subtitle mb-2"><%= cafe.cityState %></h6>
-                  <p class="card-text"><%- cafe.stars %><%- cafe.reviewLen %> </p>
-                  <p class="card-text mt-3"><%= cafe.priceString %> &nbsp;&bull;&nbsp;
-                    <% cafe.categories.forEach((cat) => { %>
-                    <span class="category"><%= cat %></span> <% }) %></p>
+    <div id="index-results" class="col-12 col-lg-10">
+      <div class="row">
+        <% for (let cafe of cafes) { %>
+        <div class="col-sm-6 col-md-4 cafe-card d-none resultsColumn">
+          <a href="/cafes/<%= cafe.id %>" class="text-decoration-none">
+            <div class="card">
+              <div class="row g-0 align-items-center">
+                <div class="col-5 col-sm-12">
+                  <img src="<%= cafe.images[0].square %>" class="card-img-top" alt="...">
+                </div>
+                <div class="col-7 col-sm-12">
+                  <div class="card-body text-center text-dark">
+                    <h5 class="card-title mx-2"><%= cafe.name %></h5>
+                    <h6 class="card-subtitle mb-2"><%= cafe.cityState %></h6>
+                    <p class="card-text"><%- cafe.stars %><%- cafe.reviewLen %> </p>
+                    <p class="card-text mt-3"><%= cafe.priceString %> &nbsp;&bull;&nbsp;
+                      <% cafe.categories.forEach((cat) => { %>
+                      <span class="category"><%= cat %></span> <% }) %></p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
+        <% } %>
       </div>
-      <% } %>
+    </div>
+
+  </div>
+  <div id="spinner" class="text-center mb-4 d-none">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-
-</div>
-<div id="spinner" class="text-center mb-4 d-none">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
 </div>
 
-
-
-<script src="/js/resDesign/indexRes.js"></script>
 <script src="/js/infiniteScroll.js"></script>
 <script src="/js/resetFilters.js"></script>

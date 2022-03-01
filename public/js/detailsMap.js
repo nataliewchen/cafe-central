@@ -1,6 +1,6 @@
 mapboxgl.accessToken = mapboxToken;
 const map = new mapboxgl.Map({
-    container: 'map', // container ID
+    container: 'details-map', // container ID
     style: 'mapbox://styles/mapbox/light-v10', // style URL
     center: cafeCoordinates, // starting position [lng, lat]
     zoom: 14 // starting zoom

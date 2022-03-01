@@ -1,6 +1,10 @@
 @import "./_mixins";
 @import "./_navbar";
 @import "./_home";
+@import "./_cafeCards";
+@import "./_options";
+@import "./_forms";
+@import "./_details";
 
 body {
   font-family: "Shippori Antique", sans-serif;
@@ -10,14 +14,18 @@ body {
   font-size: 1.1em;
 }
 
-// .btn:focus {
-//   box-shadow: none;
-// }
-
 .dropdown-item:focus {
   background-color: lightblue;
 }
 
 input[type="text"]:focus {
   box-shadow: none;
+}
+
+.sticky-top {
+  top: 3em;
+}
+
+.sticky-md-top {
+  top: 1em;
 }

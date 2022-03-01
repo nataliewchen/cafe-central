@@ -1,6 +1,6 @@
 .nav-link {
   padding: 0.25rem;
-  margin: 0 0.5rem;
+  margin: 0 0.25rem;
   border-bottom: 0.1rem solid transparent;
 }
 
@@ -10,9 +10,9 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .nav-link {
-    margin: 0 0.25rem;
+    margin: 0 0.5rem;
   }
 }
 
@@ -132,6 +132,231 @@
   }
 }
 
+.category {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0 0.5em;
+}
+
+.cafe-card {
+  margin-bottom: 1em;
+}
+
+.cafe-card .card-title {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.cafe-card .card-subtitle {
+  font-size: 0.9em;
+}
+
+.cafe-card p {
+  font-size: 0.8em;
+}
+
+.cafe-card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  z-index: 10;
+}
+
+@media only screen and (max-width: 575px) {
+  .cafe-card {
+    font-size: 3.5vw;
+  }
+  .cafe-card .card-body {
+    padding: 0;
+  }
+}
+
+.cafe-card .distance {
+  font-size: 0.8em;
+}
+
+.stars {
+  color: goldenrod;
+  letter-spacing: 0.1em;
+  font-size: 1.15em;
+}
+
+#toggleOptions:hover {
+  cursor: pointer;
+}
+
+#sortAndFilter,
+#sortAndFilter .btn-group label,
+#sortAndFilter .btn-group-vertical label,
+#sortAndFilter .btn {
+  font-size: 0.8em;
+}
+
+.options-card {
+  padding: 0;
+}
+
+.options-card .btn-outline-secondary {
+  color: black;
+}
+
+.options-card .btn-check:checked + .btn-outline-secondary {
+  background-color: lightblue;
+}
+
+.options-card .form-check-input:checked {
+  background-color: lightblue;
+}
+
+/* displaying image previews when adding new images */
+.imageContainer {
+  position: relative;
+}
+
+.imagePreview {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid lightgray;
+}
+
+.deleteCheckbox {
+  display: none;
+}
+
+.deleteCheckbox:checked + label {
+  opacity: 0.3;
+}
+
+label > .imagePreview:hover {
+  cursor: pointer;
+}
+
+/* styling for category buttons */
+.category-btn img {
+  width: 40px;
+  display: block;
+  margin: auto;
+}
+
+.category-btn input[type="checkbox"]:hover + label,
+.category-btn input[type="checkbox"]:checked + label {
+  background-color: lightblue;
+}
+
+.category-btn input[type="checkbox"]:hover + label .icon,
+.category-btn input[type="checkbox"]:checked + label .icon {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.stars-lg {
+  font-size: 2em;
+  letter-spacing: 0.15em;
+}
+
+.favorites {
+  right: 0;
+  top: 0;
+}
+
+#addFavorite {
+  color: black;
+  font-size: 3em;
+}
+
+#addFavorite:hover {
+  color: #ff9999;
+}
+
+#removeFavorite {
+  color: #ff9999;
+  font-size: 3em;
+}
+
+#removeFavorite:hover {
+  color: black;
+}
+
+.details-card .list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.details-card .list-group-item > a {
+  text-decoration: none;
+}
+
+.details-card .btn-outline-primary {
+  padding: 1px 5px;
+  font-size: 0.7em;
+}
+
+@media only screen and (max-width: 400px) {
+  .details-card {
+    font-size: 4vw;
+  }
+}
+
+#loginToReview {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #0d6efd;
+  padding: 0;
+}
+
+#details-map {
+  width: 90%;
+  height: 275px;
+  margin: 3em auto;
+  background-color: lightblue;
+}
+
+@media only screen and (min-width: 768px) {
+  #details-map {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #details-map {
+    width: 60%;
+  }
+}
+
+#reviews {
+  font-size: 0.9em;
+}
+
+#reviews .card-title {
+  font-size: 1.3em;
+}
+
+.stars-input {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.stars-input input {
+  display: none;
+}
+
+.stars-input .bi-star,
+.stars-input .bi-star-fill {
+  color: goldenrod;
+  font-size: 2em;
+}
+
+.stars-input .bi-star:hover,
+.stars-input .bi-star-fill:hover {
+  cursor: pointer;
+}
+
 body {
   font-family: "Shippori Antique", sans-serif;
 }
@@ -147,5 +372,13 @@ body {
 input[type="text"]:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.sticky-top {
+  top: 3em;
+}
+
+.sticky-md-top {
+  top: 1em;
 }
 /*# sourceMappingURL=main.css.map */

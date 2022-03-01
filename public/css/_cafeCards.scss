@@ -1,0 +1,45 @@
+.category {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0 0.5em;
+}
+
+.cafe-card {
+  margin-bottom: 1em;
+
+  .card-title {
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .card-subtitle {
+    font-size: 0.9em;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    z-index: 10;
+  }
+
+  @include mq(xs) {
+    font-size: 3.5vw;
+
+    .card-body {
+      padding: 0;
+    }
+  }
+
+  .distance {
+    font-size: 0.8em;
+  }
+}
+
+.stars {
+  color: goldenrod;
+  letter-spacing: 0.1em;
+  font-size: 1.15em;
+}

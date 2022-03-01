@@ -1,0 +1,94 @@
+.stars-lg {
+  font-size: 2em;
+  letter-spacing: 0.15em;
+}
+
+.favorites {
+  right: 0;
+  top: 0;
+}
+
+#addFavorite {
+  color: black;
+  font-size: 3em;
+
+  &:hover {
+    color: #ff9999;
+  }
+}
+
+#removeFavorite {
+  color: #ff9999;
+  font-size: 3em;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.details-card {
+  .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .list-group-item > a {
+    text-decoration: none;
+  }
+
+  // edit button
+  .btn-outline-primary {
+    padding: 1px 5px;
+    font-size: 0.7em;
+  }
+
+  @media only screen and (max-width: 400px) {
+    font-size: 4vw;
+  }
+}
+
+#loginToReview {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #0d6efd;
+  padding: 0;
+}
+
+#details-map {
+  width: 90%;
+  height: 275px;
+  margin: 3em auto;
+  background-color: lightblue;
+
+  @include mq(md) {
+    width: 80%;
+  }
+  @include mq(lg) {
+    width: 60%;
+  }
+}
+
+#reviews {
+  font-size: 0.9em;
+
+  .card-title {
+    font-size: 1.3em;
+  }
+}
+
+.stars-input {
+  user-select: none;
+  input {
+    display: none;
+  }
+  .bi-star,
+  .bi-star-fill {
+    color: goldenrod;
+    font-size: 2em;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

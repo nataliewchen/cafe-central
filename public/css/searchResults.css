@@ -65,38 +65,34 @@
 }
 
 .category {
-  border: 1px solid black;
+  /* border: 1px solid black;
   border-radius: 10px;
-  padding: 0 0.5em;
+  padding: 0 0.5em; */
   font-size: 0.8em;
 }
 
-.cafe-card:hover {
+/* .cafe-card:hover {
   transform: scale(1.03);
   z-index: 10;
-}
+} */
 
-.stars {
+/* .stars {
   color: goldenrod;
   letter-spacing: 0.1em;
   font-size: 1.15em;
-}
+} */
 
-.distance {
-  font-size: 0.8em;
-}
-
-.cafe-card .card-title {
+/* .cafe-card .card-title {
   font-size: 1em;
-}
+} */
 
-.cafe-card .card-subtitle {
+/* .cafe-card .card-subtitle {
   font-size: 0.9em;
-}
+} */
 
-.cafe-card p {
+/* .cafe-card p {
   font-size: 0.8em;
-}
+} */
 
 @media screen and (min-width: 993px) and (max-width: 1140px) {
   .cafe-card {

@@ -17,7 +17,7 @@
 }
 
 .deleteCheckbox:checked + label {
-  /* selecting labels that follow a checked img*/
+  // blurring out images that are selected for deletion
   opacity: 0.3;
 }
 
@@ -26,17 +26,21 @@ label > .imagePreview:hover {
 }
 
 /* styling for category buttons */
-.category-btn img {
-  width: 40px;
-  display: block;
-  margin: auto;
-  padding-bottom: 1px;
-}
+.category-btn {
+  img {
+    width: 40px;
+    display: block;
+    margin: auto;
+  }
 
-input[type="checkbox"]:hover + label .icon {
-  filter: invert(1);
-}
+  input[type="checkbox"]:hover + label,
+  input[type="checkbox"]:checked + label {
+    background-color: lightblue;
+  }
 
-input[type="checkbox"]:checked + label .icon {
-  filter: invert(1);
+  // flip icon color to white
+  input[type="checkbox"]:hover + label .icon,
+  input[type="checkbox"]:checked + label .icon {
+    filter: invert(1);
+  }
 }

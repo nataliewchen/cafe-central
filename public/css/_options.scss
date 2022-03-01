@@ -1,0 +1,28 @@
+#toggleOptions:hover {
+  cursor: pointer;
+}
+
+#sortAndFilter,
+#sortAndFilter .btn-group label,
+#sortAndFilter .btn-group-vertical label,
+#sortAndFilter .btn {
+  font-size: 0.8em;
+}
+
+.options-card {
+  padding: 0;
+
+  .btn-outline-secondary {
+    color: black;
+  }
+
+  // price/category filters
+  .btn-check:checked + .btn-outline-secondary {
+    background-color: lightblue;
+  }
+
+  // mult category checkbox
+  .form-check-input:checked {
+    background-color: lightblue;
+  }
+}
