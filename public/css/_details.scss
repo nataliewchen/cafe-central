@@ -73,18 +73,14 @@
   font-size: 0.9em;
 
   .card-title {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 }
 
 .stars-input {
   user-select: none;
-  input {
-    display: none;
-  }
   .bi-star,
   .bi-star-fill {
-    color: goldenrod;
     font-size: 2em;
 
     &:hover {

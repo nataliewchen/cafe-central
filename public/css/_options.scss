@@ -14,6 +14,10 @@
 
   .btn-outline-secondary {
     color: black;
+
+    &:hover {
+      color: white;
+    }
   }
 
   // price/category filters
@@ -24,5 +28,14 @@
   // mult category checkbox
   .form-check-input:checked {
     background-color: lightblue;
+  }
+}
+
+#category-list-group,
+#distance-list-group {
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    width: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }

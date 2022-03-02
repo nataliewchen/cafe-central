@@ -1,0 +1,69 @@
+.sticky-map {
+  height: 85vh;
+}
+
+.hide-map {
+  position: absolute;
+  opacity: 0;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+}
+
+.pin {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 35px;
+  background: no-repeat center/contain url("../icons/map-pin-outline.png");
+}
+
+.mapboxgl-marker:hover,
+.highlight {
+  filter: invert(1);
+  z-index: 10;
+  cursor: pointer;
+}
+/* number on the pin */
+.pin-text {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 25%;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  padding: 10px 10px 10px;
+
+  h5 {
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+}
+
+#results .category {
+  font-size: 0.8em;
+}
+
+#results .cafe-card {
+  font-size: 3.5vw;
+
+  @include mq(sm) {
+    font-size: 2vw;
+  }
+
+  @include mq(md) {
+    font-size: 0.8em;
+  }
+}
+
+#results .cafe-card .card-body {
+  @include mq(xs) {
+    padding: 0;
+  }
+}

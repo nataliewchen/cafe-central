@@ -128,16 +128,17 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-5">
+    <div class="col-12 col-md-6 col-lg-5">
       <% for (let review of cafe.reviews) { %>
       <div class="card review-card mb-3">
         <div class="card-body">
           <div class="d-flex">
             <div class="flex-grow-1">
-              <h5 class="card-title mb-0"><span class="stars"><%- review.stars %></span>
-                <%= review.headline %></h5>
+              <span class="stars"><%- review.stars %></span>
+              <h6 class="card-title mb-0">
+                <%= review.headline %></h6>
             </div>
-            <% if(currentUser && review.author.equals(currentUser.id)) { %>
+            <% if(currentUser && (review.author.equals(currentUser.id) || currentUser.id === '61b158f8f0e48943aab0fa5f')) { %>
             <div>
               <form action="/cafes/<%= cafe.id %>/reviews/<%= review.id %>?_method=delete" method="post">
                 <button class="btn btn-sm btn-outline-danger" type="submit"><i class="bi bi-trash fs-6"></i></button>
@@ -166,9 +167,11 @@
 
 
 
-<script src="/js/starsValidation.js"></script>
+
 <script>
   const mapboxToken = '<%- process.env.MAPBOX_TOKEN %>';
-  const cafeCoordinates = < % -JSON.stringify(cafe.geometry.coordinates) % > ;
+  const cafeCoordinates = <%- JSON.stringify(cafe.geometry.coordinates) %>;
 </script>
+
+<script src="/js/starsInput.js"></script>
 <script src="/js/detailsMap.js"></script>

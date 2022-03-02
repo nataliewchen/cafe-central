@@ -158,7 +158,7 @@
 .cafe-card:hover {
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
-  z-index: 10;
+  z-index: 5;
 }
 
 @media only screen and (max-width: 575px) {
@@ -175,8 +175,6 @@
 }
 
 .stars {
-  color: goldenrod;
-  letter-spacing: 0.1em;
   font-size: 1.15em;
 }
 
@@ -199,12 +197,25 @@
   color: black;
 }
 
+.options-card .btn-outline-secondary:hover {
+  color: white;
+}
+
 .options-card .btn-check:checked + .btn-outline-secondary {
   background-color: lightblue;
 }
 
 .options-card .form-check-input:checked {
   background-color: lightblue;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #category-list-group,
+  #distance-list-group {
+    width: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 
 /* displaying image previews when adding new images */
@@ -332,7 +343,7 @@ label > .imagePreview:hover {
 }
 
 #reviews .card-title {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 .stars-input {
@@ -342,19 +353,90 @@ label > .imagePreview:hover {
           user-select: none;
 }
 
-.stars-input input {
-  display: none;
-}
-
 .stars-input .bi-star,
 .stars-input .bi-star-fill {
-  color: goldenrod;
   font-size: 2em;
 }
 
 .stars-input .bi-star:hover,
 .stars-input .bi-star-fill:hover {
   cursor: pointer;
+}
+
+.sticky-map {
+  height: 85vh;
+}
+
+.hide-map {
+  position: absolute;
+  opacity: 0;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+}
+
+.pin {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 35px;
+  background: no-repeat center/contain url("../icons/map-pin-outline.png");
+}
+
+.mapboxgl-marker:hover,
+.highlight {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* number on the pin */
+.pin-text {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 25%;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  padding: 10px 10px 10px;
+}
+
+.mapboxgl-popup-content h5 {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+#results .category {
+  font-size: 0.8em;
+}
+
+#results .cafe-card {
+  font-size: 3.5vw;
+}
+
+@media only screen and (min-width: 576px) {
+  #results .cafe-card {
+    font-size: 2vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #results .cafe-card {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  #results .cafe-card .card-body {
+    padding: 0;
+  }
 }
 
 body {
@@ -378,7 +460,27 @@ input[type="text"]:focus {
   top: 3em;
 }
 
+.sticky-top-0 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.sticky-top-below {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 3.5em;
+}
+
 .sticky-md-top {
   top: 1em;
+}
+
+.bi-star,
+.bi-star-fill,
+.bi-star-half {
+  color: goldenrod;
+  letter-spacing: 0.1em;
 }
 /*# sourceMappingURL=main.css.map */

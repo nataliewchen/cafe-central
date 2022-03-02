@@ -54,12 +54,15 @@ module.exports.search = catchAsync(async(req, res) => {
     const sort = req.query.srt || ''; // defaults to none
     const applied = formatQueries(req.query); // ensuring arrays and correct types for filters
     const filter = createFilter(applied); // based on filters and name
-    const cafes = await sortCafes(sort, filter);
+    let cafes = await sortCafes(sort, filter);
 
     if (!loc) { // no geocoding
       const boundCoords = cafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
       const bounds = geolib.getBounds(boundCoords);
       const mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
+      if (cafes.length > 10) {
+        cafes = cafes.slice(0, 10);
+      }
         res.render('cafes/searchResults', {cafes, applied, sort, name, loc, mapboxBounds});
     }
     else { // need to geocode

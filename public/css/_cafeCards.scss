@@ -22,7 +22,7 @@
 
   &:hover {
     transform: scale(1.03);
-    z-index: 10;
+    z-index: 5;
   }
 
   @include mq(xs) {
@@ -39,7 +39,5 @@
 }
 
 .stars {
-  color: goldenrod;
-  letter-spacing: 0.1em;
   font-size: 1.15em;
 }

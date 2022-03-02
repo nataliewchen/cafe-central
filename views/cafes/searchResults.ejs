@@ -1,10 +1,9 @@
 <%- layout('/layout/boilerplate') %>
-<link rel="stylesheet" href="/css/searchResults.css">
 
-<div class="sticky-top">
+<div class="sticky-top-0">
   <div class="row text-center bg-white justify-content-center" id="searchBarSticky">
     <div class="col-lg-10">
-      <form class="d-sm-flex align-items-center pt-1 pt-lg-3 pb-1 pb-lg-3" action="/cafes/s" method="get">
+      <form class="d-sm-flex align-items-center pt-1 pt-lg-2 pb-1 pb-lg-3" action="/cafes/s" method="get">
 
         <label class="visually-hidden" for="name">Name</label>
         <div class="input-group">
@@ -20,14 +19,13 @@
         </div>
 
         <button class="btn btn-outline-success d-none d-md-block" type="submit"><i
-            class="fw-bold bi bi-arrow-right"></i><span class="buttonText ms-1">Search</span></button>
+            class="fw-bold bi bi-arrow-right"></i></button>
       </form>
     </div>
   </div>
   <div class="row bg-light mb-3 align-items-center justify-content-between d-lg-none" id="controls">
     <div class="col-auto">
-      <button type="button" class="btn float-end" data-bs-toggle="modal"
-        data-bs-target="#optionsModal">
+      <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#optionsModal">
         <i class="bi bi-sliders"></i>
       </button>
     </div>
@@ -43,12 +41,12 @@
     </div>
   </div>
 </div>
-<%- include('optionsModal') %>
+<%- include('../partials/optionsModal') %>
 <div class="row" id="content">
   <div id="options" class="col-12 col-lg-2 d-none d-lg-block">
 
     <div class="sticky-top-below">
-      <%- include('optionsForm') %>
+      <%- include('../partials/optionsForm') %>
     </div>
   </div>
 
@@ -98,9 +96,8 @@
   </div>
   <div id="mapContainer" class="col-12 col-sm-6 col-lg-5 d-block">
     <div class="sticky-top-below sticky-map">
-      <form></form>
       <div id="map" class=""></div>
-      </div>
+    </div>
   </div>
 </div>
 
@@ -119,5 +116,5 @@
 
 <script src="/js/infiniteScroll.js"></script>
 <script src="/js/resetFilters.js"></script>
-<script src="/js/resDesign/searchResultsRes.js"></script>
+<script src="/js/toggleClusterMap.js"></script>
 <script src="/js/clusterMap.js"></script>

@@ -74,8 +74,4 @@ if (cafes.features) {
       document.querySelector(`#pin${i}`).parentElement.classList.remove('highlight');
     });
   })
-
-  map.once('load', () => {
-    map.resize();
-  })
 }

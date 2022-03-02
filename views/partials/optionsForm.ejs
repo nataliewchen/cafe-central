@@ -1,5 +1,5 @@
 <form action="<%= url %>" method="get" id="sortAndFilter" class="row">
-  <div class="card mb-3 text-center options-card">
+  <div class="card mb-0 text-center options-card">
     <div class="card-header mb-1">Sort By</div>
     <select id="sort-by" name="srt" class="w-75 mx-auto my-3">
       <option selected></option>
@@ -10,7 +10,7 @@
       </option>
     </select>
   </div>
-  <div class="card options-card mb-3" id="filters">
+  <div class="card options-card mb-0" id="filters">
     <div class="card-header text-center">Filters</div>
     <ul class="list-group list-group-flush text-center">
       <li class="list-group-item">
@@ -29,7 +29,7 @@
           <label class="btn btn-outline-secondary w-25" for="price3">$$$</label>
         </div>
       </li>
-      <li class="list-group-item">
+      <li class="list-group-item" id="category-list-group">
         <p class="mb-1">Category</p>
         <div class="btn-group btn-group-sm w-100 mb-2" role="group" aria-label="category filter button group">
           <input type="checkbox" class="btn-check" name="cf" value="coffee" id="coffee" autocomplete="off"
@@ -52,8 +52,47 @@
           </label>
         </div>
       </li>
+      <!-- <li class="list-group-item">
+        <p class="mb-1">Category</p>
+        <div class="btn-group-vertical w-75 mb-2" role="group" aria-label="category filter button group">
+          <input type="checkbox" class="btn-check" name="cf" value="coffee" id="coffee" autocomplete="off"
+            <% if (applied.categories && applied.categories.includes("Coffee")) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary" for="coffee">Coffee</label>
+
+          <input type="checkbox" class="btn-check" name="cf" value="boba" id="boba" autocomplete="off"
+            <% if (applied.categories && applied.categories.includes("Boba")) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary" for="boba">Boba</label>
+
+          <input type="checkbox" class="btn-check" name="cf" value="bakery" id="Bakery" autocomplete="off"
+            <% if (applied.categories && applied.categories.includes("Bakery")) { %> checked <% } %>>
+          <label class="btn btn-outline-secondary" for="Bakery">Bakery</label>
+        </div>
+        <div class="">
+          <input class="form-check-input me-1" type="checkbox" name="mult" id="multCat" <% if (applied.mult) { %>
+            checked <% } %>>
+          <label class="form-check-label" for="multCat"><small>
+              Match all selected</small>
+          </label>
+        </div>
+      </li> -->
       <% if(url.includes('/cafes/s')) { %>
-      <li class="list-group-item">
+      <li class="list-group-item" id="distance-list-group">
+        <p class="mb-1">Distance</p>
+        <div class="btn-group btn-group-sm w-100 mb-2" role="group" aria-label="distance filter button group">
+          <input type="radio" class="btn-check" name="df" value="2" id="distance2" <% if (applied.distance==="2") { %>
+            checked <% } %>>
+          <label class="btn btn-outline-secondary w-25" for="distance2">2 mi</label>
+
+          <input type="radio" class="btn-check" name="df" value="5" id="distance5" <% if (applied.distance==="5") { %>
+            checked <% } %>>
+          <label class="btn btn-outline-secondary w-25" for="distance5">5 mi</label>
+
+          <input type="radio" class="btn-check" name="df" value="10" id="distance10"
+            <% if (applied.distance==="10") { %> checked <% } %>>
+          <label class="btn btn-outline-secondary w-25" for="distance10">10 mi</label>
+        </div>
+      </li>
+      <!-- <li class="list-group-item">
         <p class="mb-1">Distance</p>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="df" value="2" id="distance2"
@@ -70,7 +109,7 @@
             <% if (applied.distance==="10") { %> checked <% } %>>
           <label class="form-check-label" for="distance10">10 miles</label>
         </div>
-      </li>
+      </li> -->
       <% } %>
 
     </ul>
@@ -78,7 +117,7 @@
   <div class="card mb-3 text-center options-card">
     <li class="list-group item">
       <input class="btn btn-outline-primary w-75 mx-auto mt-2 d-lg-none" type="submit" id="apply" value="Apply">
-      <input class="btn btn-outline-danger w-75 mx-auto my-2" type="button" id="reset" value="Reset">
+      <input class="btn btn-outline-danger w-75 mx-auto my-2 reset-filters" type="button" value="Reset">
       <input class="btn btn-outline-secondary w-75 mx-auto mb-2 d-lg-none" type="button" data-bs-dismiss="modal"
         value="Cancel">
     </li>
