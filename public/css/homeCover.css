@@ -1,10 +1,10 @@
 body {
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
-    url("../imgs/home-banner.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
+    url("../imgs/home-cover.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 80%;
+  background-position: 40%;
   font-family: "Shippori Antique", sans-serif;
   background-color: rgb(248, 249, 250);
 }

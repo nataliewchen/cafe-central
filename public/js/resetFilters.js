@@ -1,9 +1,12 @@
-const form = document.querySelector('#sortAndFilter');
-form.addEventListener('change', function () { // automatically submits when changed (filters applied immediately)
+const form = document.querySelectorAll('.sortAndFilter');
+form.forEach (form => {
+  form.addEventListener('change', function () { // automatically submits when changed (filters applied immediately)
     if (window.innerWidth >= 992) { // only for lg screens (when options bar is always visible)
         this.submit();
     }
-});
+  });
+})
+
 
 const reset = document.querySelectorAll('.reset-filters'); // multiple resets since buttons show in modal also
 
