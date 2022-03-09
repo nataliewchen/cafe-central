@@ -81,7 +81,7 @@ module.exports.search = catchAsync(async(req, res) => {
             if (sort === 'dist' || sort === '') {
                 filteredCafes.sort((a,b) => a.distance > b.distance ? 1 : -1); // default: sort by distance
             }
-            if (filteredCafes.length > 10) {
+            if (filteredCafes.length > 10 && !req.query.df) {
               filteredCafes = filteredCafes.slice(0, 10);
             }
 
