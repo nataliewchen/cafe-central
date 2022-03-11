@@ -27,7 +27,7 @@
       <div class="card details-card border-0">
         <div class="card-body">
           <div class="">
-            <h2 class="card-title d-inline align-middle fs-3"><%= cafe.name %></h2>
+            <h2 class="card-title fs-3"><%= cafe.name %></h2>
             <span class="favorites position-absolute">
               <% if (currentUser && !inFavorites) { %>
               <form action="/user/<%= currentUser.id %>/cafes/<%= cafe.id %>" method="post" class="d-inline">
