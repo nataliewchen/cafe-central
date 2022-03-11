@@ -3,10 +3,17 @@ mapboxgl.accessToken = mapboxToken;
 if (cafes.features) {
   const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/light-v10'
+      style: 'mapbox://styles/mapbox/light-v10',
+      center: cafes.features[0].geometry.coordinates,
+      zoom: 10
   });
+  
+  if (mapboxBounds) {
+    map.fitBounds(mapboxBounds, { padding: 50 });
+  }
+    
 
-  map.fitBounds(mapboxBounds, { padding: 50 });
+
 
   map.on('load', () => {
 

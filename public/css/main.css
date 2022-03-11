@@ -294,7 +294,6 @@ label > .imagePreview:hover {
   width: 90%;
   height: 275px;
   margin: 3em auto;
-  background-color: lightblue;
 }
 
 @media only screen and (min-width: 768px) {
@@ -346,7 +345,6 @@ label > .imagePreview:hover {
 #map {
   width: 100%;
   height: 100%;
-  background-color: lightblue;
 }
 
 .pin {

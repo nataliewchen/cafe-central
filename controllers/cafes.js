@@ -84,11 +84,12 @@ module.exports.search = catchAsync(async(req, res) => {
             if (filteredCafes.length > 10 && !req.query.df) {
               filteredCafes = filteredCafes.slice(0, 10);
             }
-
-            const boundCoords = filteredCafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
-            const bounds = geolib.getBounds(boundCoords);
-            const mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
-
+            let mapboxBounds = null; // one result default
+            if (filteredCafes.length > 1 ) {
+              const boundCoords = filteredCafes.map(cafe => ({'latitude': cafe.geometry.coordinates[1], 'longitude': cafe.geometry.coordinates[0]}));
+              const bounds = geolib.getBounds(boundCoords);
+              mapboxBounds = [[bounds.minLng, bounds.minLat], [bounds.maxLng, bounds.maxLat]];
+            }
             res.render('cafes/searchResults', {cafes: filteredCafes, applied, sort, name, loc, mapboxBounds});
         }).catch(err => {
             console.log(err);
