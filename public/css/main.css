@@ -70,9 +70,8 @@
 .cover {
   line-height: 0.1em;
   color: white;
-  width: 90%;
   text-align: center;
-  margin: 8em auto;
+  margin: 8em auto 3em;
   width: 80%;
 }
 
@@ -101,6 +100,21 @@
 .cover h1,
 .cover h6 {
   text-shadow: 0 0 5px gray;
+}
+
+.demo-tip {
+  margin: 0 auto;
+  width: 80%;
+}
+
+@media only screen and (min-width: 768px) {
+  .demo-tip {
+    width: 60%;
+  }
+}
+
+.demo-tip a:hover {
+  cursor: pointer;
 }
 
 .category {

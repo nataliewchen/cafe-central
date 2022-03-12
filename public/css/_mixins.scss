@@ -30,28 +30,3 @@
     }
   }
 }
-
-// @mixin res-width($mobile, $tablet, $tabletWide, $desktop, $desktopWide) {
-//   @include mq(mobile) {
-//     width: $mobile;
-//   }
-//   @include mq(tablet) {
-//     width: $tablet;
-//   }
-//   @include mq(tabletWide) {
-//     width: $tabletWide;
-//   }
-//   @include mq(desktop) {
-//     width: $desktop;
-//   }
-//   @include mq(desktopWide) {
-//     width: $desktopWide;
-//   }
-// }
-
-// @mixin flexbox($direction: row, $justify: center, $align: center) {
-//   display: flex;
-//   flex-direction: $direction;
-//   justify-content: $justify;
-//   align-items: $align;
-// }

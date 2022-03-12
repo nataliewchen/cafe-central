@@ -3,8 +3,50 @@
 
 <div class="cover d-flex flex-column">
   <h1 class="mb-4">Find your next cup of happiness.</h1>
-  <h6 class="mt-3">Start by entering a cafe name, a location, or both!</h6>
+  <h6 class="mt-3">Start by entering a cafe name or a location!</h6>
   <div class="home-search">
     <%- include('./partials/searchBar') %>
+  </div>
+
+</div>
+
+<div class="demo-tip alert alert-primary alert-dismissible fade show text-center py-2 px-4" role="alert">
+  <small></i><strong>Want to maximize your experience of this
+      demo?</strong><br>Click <a class="link-primary" data-bs-toggle="modal" data-bs-target="#demoTip">
+      here</a> to learn more!</small>
+  <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="demoTip" tabindex="-1" aria-labelledby="demoTipLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="demoTipLabel">Demo Tips</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6><strong>Searching</strong></h6>
+        This application has been seeded with cafes that are located within the San Francisco Bay Area. To effectively
+        test the search function, try entering cities around this region, such as:
+        <ul>
+          <li>San Mateo, CA</li>
+          <li>Mountain View, CA</li>
+          <li>San Jose, CA</li>
+          <li>Fremont, CA</li>
+          <li>Oakland, CA</li>
+        </ul>
+        <h6><strong>User Features</strong></h6>
+        Certain functions of this application, such as editing a cafe, leaving a review, or saving a cafe to Favorites
+        require a user to be logged in. To test these features without creating an account, you can log
+        in with the following
+        credentials:
+        <ul>
+          <li>Username: humanbean</li>
+          <li>Password: humanbean</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
