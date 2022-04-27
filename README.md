@@ -1,4 +1,4 @@
-# cafe-central
+# cafe central
 
 A full-stack Yelp clone application designed to guide you to your new favorite coffee or boba spot!
 
